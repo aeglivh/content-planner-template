@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 
 const MN=["Foundations","Structural Thinking","Spatial Intelligence","Designer Refinement"];
 const DY=["Mon","Tue","Wed","Thu","Fri"];
@@ -1187,9 +1187,12 @@ export default function P() {
   const [sts, setSts] = useState({});
   const [modalItem, setModalItem] = useState(null);
   const [edits, setEdits] = useState({});
+  const [allData, setAllData] = useState(() => D.map(w => w.map(i => ({ ...i }))));
+  const [dragOver, setDragOver] = useState(null); // "weekIdx-day"
+  const dragRef = useRef(null); // { weekIdx, day, item }
 
   const wi = mo * 4 + wk;
-  const data = D[wi];
+  const data = allData[wi];
   const tw = wi + 1;
   const stC = { Idea: "#f0c040", Drafting: "#60aaff", Ready: "#d070ff", Posted: "#4cdd80" };
   const sk = (d) => `${wi}-${d}`;
@@ -1213,6 +1216,69 @@ export default function P() {
     const key = `${wi}-${item.d}`;
     return edits[key]?.[field] ?? item[field] ?? "";
   };
+
+  /* ── Drag & Drop ── */
+  const handleDragStart = useCallback((weekIdx, day, item, e) => {
+    dragRef.current = { weekIdx, day, item };
+    e.dataTransfer.effectAllowed = "move";
+    e.dataTransfer.setData("text/plain", ""); // required for Firefox
+    e.currentTarget.style.opacity = "0.4";
+  }, []);
+
+  const handleDragEnd = useCallback((e) => {
+    e.currentTarget.style.opacity = "1";
+    dragRef.current = null;
+    setDragOver(null);
+  }, []);
+
+  const handleDragOver = useCallback((weekIdx, day, e) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
+    const key = `${weekIdx}-${day}`;
+    setDragOver(key);
+  }, []);
+
+  const handleDragLeave = useCallback(() => {
+    setDragOver(null);
+  }, []);
+
+  const handleDrop = useCallback((targetWeekIdx, targetDay, e) => {
+    e.preventDefault();
+    setDragOver(null);
+    const src = dragRef.current;
+    if (!src) return;
+    if (src.weekIdx === targetWeekIdx && src.day === targetDay) return;
+
+    setAllData(prev => {
+      const next = prev.map(w => w.map(i => ({ ...i })));
+      const srcWeek = next[src.weekIdx];
+      const tgtWeek = next[targetWeekIdx];
+      const srcIdx = srcWeek.findIndex(x => x.d === src.day);
+      const tgtIdx = tgtWeek.findIndex(x => x.d === targetDay);
+
+      if (srcIdx === -1) return prev;
+
+      if (tgtIdx === -1) {
+        // Target slot is empty: move item there
+        const [moved] = srcWeek.splice(srcIdx, 1);
+        moved.d = targetDay;
+        tgtWeek.push(moved);
+      } else {
+        // Both slots occupied: swap
+        const srcItem = srcWeek[srcIdx];
+        const tgtItem = tgtWeek[tgtIdx];
+        const srcDay = srcItem.d;
+        const tgtDay = tgtItem.d;
+        srcItem.d = tgtDay;
+        tgtItem.d = srcDay;
+        srcWeek[srcIdx] = tgtItem;
+        tgtWeek[tgtIdx] = srcItem;
+      }
+      return next;
+    });
+
+    dragRef.current = null;
+  }, []);
 
   const isMatch = (d) => !ap || PIL[d] === ap;
   const bs = {
@@ -1326,7 +1392,7 @@ export default function P() {
           <p style={{
             fontSize: "0.66rem", color: "#666", letterSpacing: "2px",
             textTransform: "uppercase", marginBottom: "8px"
-          }}>Click any card to open full brief</p>
+          }}>Drag cards to rearrange · Click to open brief</p>
 
           {/* Grid */}
           <div style={{
@@ -1342,18 +1408,37 @@ export default function P() {
             ))}
             {DY.map((d) => {
               const item = data.find((x) => x.d === d);
-              if (!item) return <div key={d} />;
+              const isOver = dragOver === `${wi}-${d}`;
+              if (!item) return (
+                <div key={d}
+                  onDragOver={(e) => handleDragOver(wi, d, e)}
+                  onDragLeave={handleDragLeave}
+                  onDrop={(e) => handleDrop(wi, d, e)}
+                  style={{
+                    background: isOver ? "#1c1c1c" : "transparent",
+                    border: isOver ? "1px dashed #555" : "1px dashed transparent",
+                    borderRadius: "3px", minHeight: "150px",
+                    transition: "all 0.15s",
+                  }}
+                />
+              );
               const st = sts[sk(d)];
               const match = isMatch(d);
               return (
                 <div
                   key={`c-${d}`}
+                  draggable
+                  onDragStart={(e) => handleDragStart(wi, d, item, e)}
+                  onDragEnd={handleDragEnd}
+                  onDragOver={(e) => handleDragOver(wi, d, e)}
+                  onDragLeave={handleDragLeave}
+                  onDrop={(e) => handleDrop(wi, d, e)}
                   onClick={() => openDoc(item)}
                   style={{
-                    background: match ? "#141414" : "#0d0d0d",
-                    border: `1px solid ${match ? "#1f1f1f" : "#151515"}`,
+                    background: isOver ? "#1e1e1e" : (match ? "#141414" : "#0d0d0d"),
+                    border: isOver ? "1px dashed #666" : `1px solid ${match ? "#1f1f1f" : "#151515"}`,
                     borderRadius: "3px", padding: "9px", minHeight: "150px",
-                    cursor: "pointer", transition: "all 0.2s", position: "relative",
+                    cursor: "grab", transition: "all 0.2s", position: "relative",
                     opacity: match ? 1 : 0.25
                   }}
                   onMouseEnter={(e) => {
@@ -1443,7 +1528,7 @@ export default function P() {
           <p style={{
             fontSize: "0.66rem", color: "#666", letterSpacing: "2px",
             textTransform: "uppercase", marginBottom: "10px"
-          }}>Month {mo + 1}: {MN[mo]} — Click any cell to open brief</p>
+          }}>Month {mo + 1}: {MN[mo]} — Drag cards to rearrange</p>
           <div style={{
             display: "grid", gridTemplateColumns: "auto repeat(5,1fr)", gap: "4px"
           }}>
@@ -1457,7 +1542,7 @@ export default function P() {
             ))}
             {[0, 1, 2, 3].map((w) => {
               const gi = mo * 4 + w;
-              const wd = D[gi];
+              const wd = allData[gi];
               return (
                 <React.Fragment key={`row-${w}`}>
                   <div style={{
@@ -1467,16 +1552,35 @@ export default function P() {
                   }}>WK{gi + 1}</div>
                   {DY.map((d) => {
                     const item = wd.find((x) => x.d === d);
-                    if (!item) return <div key={d} />;
+                    const isOver = dragOver === `${gi}-${d}`;
                     const match = isMatch(d);
+                    if (!item) return (
+                      <div key={d}
+                        onDragOver={(e) => handleDragOver(gi, d, e)}
+                        onDragLeave={handleDragLeave}
+                        onDrop={(e) => handleDrop(gi, d, e)}
+                        style={{
+                          background: isOver ? "#1c1c1c" : "transparent",
+                          border: isOver ? "1px dashed #555" : "1px dashed transparent",
+                          borderRadius: "3px", minHeight: "60px",
+                          transition: "all 0.15s",
+                        }}
+                      />
+                    );
                     return (
                       <div
                         key={`${w}-${d}`}
+                        draggable
+                        onDragStart={(e) => handleDragStart(gi, d, item, e)}
+                        onDragEnd={handleDragEnd}
+                        onDragOver={(e) => handleDragOver(gi, d, e)}
+                        onDragLeave={handleDragLeave}
+                        onDrop={(e) => handleDrop(gi, d, e)}
                         onClick={() => { setWk(w); openDoc(item); }}
                         style={{
-                          background: match ? "#141414" : "#0d0d0d",
-                          border: "1px solid " + (match ? "#1f1f1f" : "#151515"),
-                          borderRadius: "3px", padding: "6px", cursor: "pointer",
+                          background: isOver ? "#1e1e1e" : (match ? "#141414" : "#0d0d0d"),
+                          border: isOver ? "1px dashed #666" : ("1px solid " + (match ? "#1f1f1f" : "#151515")),
+                          borderRadius: "3px", padding: "6px", cursor: "grab",
                           minHeight: "60px", position: "relative", transition: "all 0.15s",
                           opacity: match ? 1 : 0.2
                         }}
