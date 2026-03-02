@@ -1011,10 +1011,34 @@ ca:`The final step isn't adding the last piece. It's removing the one you don't 
 tg:"#casaaltbau #quietdesign #intentionalhome #apartmentdesign #altbauliebe #interiordesign"}]
 ];
 
+/* ─── Editable Field ─── */
+function EditField({ value, onChange, color, style, multiline = true }) {
+  const baseStyle = {
+    background: "transparent", border: "1px solid transparent",
+    borderRadius: "3px", outline: "none", width: "100%",
+    fontFamily: "'Inter', sans-serif", resize: "vertical",
+    padding: "6px 8px", margin: "-6px -8px",
+    transition: "border-color 0.15s, background 0.15s",
+    ...style,
+  };
+  const handlers = {
+    onFocus: (e) => { e.currentTarget.style.borderColor = (color || "#333"); e.currentTarget.style.background = "#0a0a0a"; },
+    onBlur: (e) => { e.currentTarget.style.borderColor = "transparent"; e.currentTarget.style.background = "transparent"; },
+  };
+  if (!multiline) {
+    return <input type="text" value={value} onChange={(e) => onChange(e.target.value)} style={{ ...baseStyle, height: "auto" }} {...handlers} />;
+  }
+  const rows = Math.max(2, (value || "").split("\n").length + 1);
+  return <textarea value={value} onChange={(e) => onChange(e.target.value)} rows={rows} style={{ ...baseStyle, lineHeight: style?.lineHeight || 1.75 }} {...handlers} />;
+}
+
 /* ─── Modal Brief Component ─── */
-function BriefModal({ item, mo, tw, onClose }) {
+function BriefModal({ item, mo, tw, onClose, edits, onEdit }) {
   const c = SC[item.d];
-  const brItems = (item.br || "").split("\n").filter(Boolean);
+  const key = `${tw - 1}-${item.d}`;
+
+  const get = (field) => edits[key]?.[field] ?? item[field] ?? "";
+  const set = (field) => (val) => onEdit(key, field, val);
 
   useEffect(() => {
     const handleKey = (e) => {
@@ -1026,11 +1050,13 @@ function BriefModal({ item, mo, tw, onClose }) {
 
   const Section = ({ label }) => (
     <div style={{
-      fontSize: "0.58rem", letterSpacing: "3.5px", textTransform: "uppercase",
-      color: "#777", marginBottom: "8px", marginTop: "28px",
-      borderTop: "1px solid #222", paddingTop: "16px"
+      fontSize: "0.7rem", letterSpacing: "3.5px", textTransform: "uppercase",
+      color: "#999", marginBottom: "8px", marginTop: "28px",
+      borderTop: "1px solid #252525", paddingTop: "16px"
     }}>{label}</div>
   );
+
+  const fieldBase = { color: "#d0d0d0", fontFamily: "'Inter', sans-serif" };
 
   return (
     <div
@@ -1045,10 +1071,10 @@ function BriefModal({ item, mo, tw, onClose }) {
       <div
         onClick={(e) => e.stopPropagation()}
         style={{
-          background: "#111", border: "1px solid #222",
-          borderRadius: "6px", maxWidth: "620px", width: "100%",
-          padding: "40px 36px", position: "relative",
-          color: "#ccc", lineHeight: 1.75, fontFamily: "'Inter', sans-serif",
+          background: "#131313", border: "1px solid #252525",
+          borderRadius: "6px", maxWidth: "660px", width: "100%",
+          padding: "40px 38px", position: "relative",
+          color: "#d0d0d0", lineHeight: 1.75, fontFamily: "'Inter', sans-serif",
           boxShadow: "0 24px 80px rgba(0,0,0,0.6)",
           marginBottom: "40px",
         }}
@@ -1058,14 +1084,14 @@ function BriefModal({ item, mo, tw, onClose }) {
           onClick={onClose}
           style={{
             position: "absolute", top: "14px", right: "16px",
-            background: "none", border: "1px solid #333",
-            color: "#666", fontSize: "0.7rem", cursor: "pointer",
+            background: "none", border: "1px solid #444",
+            color: "#888", fontSize: "0.75rem", cursor: "pointer",
             borderRadius: "3px", padding: "4px 10px",
             fontFamily: "Inter", letterSpacing: "1px",
             transition: "all 0.15s",
           }}
-          onMouseEnter={e => { e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#555"; }}
-          onMouseLeave={e => { e.currentTarget.style.color = "#666"; e.currentTarget.style.borderColor = "#333"; }}
+          onMouseEnter={e => { e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#666"; }}
+          onMouseLeave={e => { e.currentTarget.style.color = "#888"; e.currentTarget.style.borderColor = "#444"; }}
         >
           ESC
         </button>
@@ -1074,89 +1100,74 @@ function BriefModal({ item, mo, tw, onClose }) {
         <div style={{ display: "flex", gap: "6px", flexWrap: "wrap", marginBottom: "6px" }}>
           <span style={{
             display: "inline-block", background: c, color: "#000",
-            padding: "4px 14px", borderRadius: "3px", fontSize: "0.6rem",
+            padding: "4px 14px", borderRadius: "3px", fontSize: "0.68rem",
             fontWeight: 600, letterSpacing: "2.5px", textTransform: "uppercase"
           }}>{item.d} · {SN[item.d]}</span>
           <span style={{
-            display: "inline-block", background: "#1a1a1a", color: "#888",
-            padding: "4px 12px", borderRadius: "3px", fontSize: "0.55rem",
+            display: "inline-block", background: "#1e1e1e", color: "#aaa",
+            padding: "4px 12px", borderRadius: "3px", fontSize: "0.64rem",
             fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase"
           }}>{item.f}</span>
           <span style={{
-            display: "inline-block", background: c + "15", color: c,
-            padding: "4px 10px", borderRadius: "3px", fontSize: "0.55rem",
+            display: "inline-block", background: c + "18", color: c,
+            padding: "4px 10px", borderRadius: "3px", fontSize: "0.64rem",
             fontWeight: 500, letterSpacing: "1.5px", textTransform: "uppercase"
           }}>{PIL[item.d]}</span>
         </div>
 
         {/* Meta */}
         <div style={{
-          color: "#555", fontSize: "0.58rem", letterSpacing: "1.5px",
+          color: "#777", fontSize: "0.68rem", letterSpacing: "1.5px",
           marginBottom: "22px", textTransform: "uppercase"
         }}>Casa Altbau · Month {mo + 1}: {MN[mo]} · Week {tw}</div>
 
         {/* Title */}
-        <h2 style={{
-          fontSize: "1.15rem", fontWeight: 600, color: "#eee",
-          marginBottom: "4px", lineHeight: 1.35
-        }}>{item.t}</h2>
+        <EditField value={get("t")} onChange={set("t")} color={c} multiline={false}
+          style={{ ...fieldBase, fontSize: "1.25rem", fontWeight: 600, color: "#f0f0f0", lineHeight: 1.35, marginBottom: "4px" }} />
 
         {/* Principle */}
-        <div style={{
-          fontSize: "0.72rem", color: "#666", fontStyle: "italic", marginBottom: "24px"
-        }}>{item.p}</div>
+        <EditField value={get("p")} onChange={set("p")} color={c} multiline={false}
+          style={{ ...fieldBase, fontSize: "0.84rem", color: "#888", fontStyle: "italic", marginTop: "8px", marginBottom: "20px" }} />
 
         {/* Hook */}
         <Section label="Hook (0-2 sec)" />
-        <div style={{
-          fontSize: "0.82rem", color: "#ddd", fontStyle: "italic",
-          borderLeft: `3px solid ${c}`, paddingLeft: "14px", lineHeight: 1.65
-        }}>{item.h}</div>
+        <div style={{ borderLeft: `3px solid ${c}`, paddingLeft: "14px" }}>
+          <EditField value={get("h")} onChange={set("h")} color={c} multiline={false}
+            style={{ ...fieldBase, fontSize: "0.95rem", color: "#e8e8e8", fontStyle: "italic", lineHeight: 1.65 }} />
+        </div>
 
         {/* Script */}
         <Section label="Script" />
-        <div style={{
-          fontSize: "0.78rem", color: "#bbb", lineHeight: 1.85,
-          whiteSpace: "pre-wrap"
-        }}>{item.sc}</div>
+        <EditField value={get("sc")} onChange={set("sc")} color={c}
+          style={{ ...fieldBase, fontSize: "0.88rem", color: "#d0d0d0", lineHeight: 1.85 }} />
 
         {/* Delivery Notes */}
         <Section label="Delivery Notes" />
-        <div style={{
-          fontSize: "0.72rem", color: "#888", lineHeight: 1.7,
-          whiteSpace: "pre-wrap", background: "#0d0d0d",
-          padding: "14px 16px", borderRadius: "4px",
-          borderLeft: `3px solid ${c}44`
-        }}>{item.dn}</div>
+        <div style={{ background: "#0e0e0e", padding: "14px 16px", borderRadius: "4px", borderLeft: `3px solid ${c}44` }}>
+          <EditField value={get("dn")} onChange={set("dn")} color={c}
+            style={{ ...fieldBase, fontSize: "0.84rem", color: "#aaa", lineHeight: 1.7 }} />
+        </div>
 
         {/* B-Roll */}
         <Section label="B-Roll Checklist" />
-        <div style={{ fontSize: "0.72rem", color: "#888", lineHeight: 1.8 }}>
-          {brItems.map((b, i) => (
-            <div key={i} style={{ paddingLeft: "12px", position: "relative", marginBottom: "3px" }}>
-              <span style={{ position: "absolute", left: 0, color: c + "88" }}>·</span>
-              {b.trim()}
-            </div>
-          ))}
-        </div>
+        <EditField value={get("br")} onChange={set("br")} color={c}
+          style={{ ...fieldBase, fontSize: "0.84rem", color: "#aaa", lineHeight: 1.9 }} />
 
         {/* Caption */}
         <Section label="Caption (Instagram)" />
-        <div style={{
-          fontSize: "0.74rem", color: "#999", lineHeight: 1.7, whiteSpace: "pre-wrap"
-        }}>{item.ca}</div>
+        <EditField value={get("ca")} onChange={set("ca")} color={c}
+          style={{ ...fieldBase, fontSize: "0.86rem", color: "#bbb", lineHeight: 1.7 }} />
 
         {/* Tags */}
-        <div style={{
-          fontSize: "0.66rem", color: "#555", marginTop: "24px",
-          borderTop: "1px solid #222", paddingTop: "14px",
-          letterSpacing: "0.3px", lineHeight: 1.8
-        }}>{item.tg}</div>
+        <div style={{ marginTop: "24px", borderTop: "1px solid #252525", paddingTop: "14px" }}>
+          <EditField value={get("tg")} onChange={set("tg")} color={c} multiline={false}
+            style={{ ...fieldBase, fontSize: "0.78rem", color: "#777", letterSpacing: "0.3px" }} />
+        </div>
 
         {/* Footer */}
         <div style={{
-          marginTop: "28px", borderTop: "1px solid #1a1a1a", paddingTop: "14px",
-          fontSize: "0.52rem", color: "#444", textTransform: "uppercase",
+          marginTop: "28px", borderTop: "1px solid #1e1e1e", paddingTop: "14px",
+          fontSize: "0.6rem", color: "#555", textTransform: "uppercase",
           letterSpacing: "2.5px", display: "flex", justifyContent: "space-between"
         }}>
           <span>Casa Altbau Content Plan</span>
@@ -1175,6 +1186,7 @@ export default function P() {
   const [ap, setAp] = useState(null);
   const [sts, setSts] = useState({});
   const [modalItem, setModalItem] = useState(null);
+  const [edits, setEdits] = useState({});
 
   const wi = mo * 4 + wk;
   const data = D[wi];
@@ -1190,11 +1202,23 @@ export default function P() {
     setModalItem(null);
   }, []);
 
+  const handleEdit = useCallback((key, field, value) => {
+    setEdits((prev) => ({
+      ...prev,
+      [key]: { ...(prev[key] || {}), [field]: value },
+    }));
+  }, []);
+
+  const getEdited = (item, field) => {
+    const key = `${wi}-${item.d}`;
+    return edits[key]?.[field] ?? item[field] ?? "";
+  };
+
   const isMatch = (d) => !ap || PIL[d] === ap;
   const bs = {
-    borderRadius: "3px", fontSize: "0.66rem", cursor: "pointer",
+    borderRadius: "3px", fontSize: "0.72rem", cursor: "pointer",
     fontFamily: "Inter", letterSpacing: "1px", textTransform: "uppercase",
-    transition: "all 0.15s", border: "1px solid #2a2a2a", padding: "5px 13px"
+    transition: "all 0.15s", border: "1px solid #333", padding: "5px 13px"
   };
 
   return (
@@ -1204,7 +1228,7 @@ export default function P() {
     }}>
       {/* Modal */}
       {modalItem && (
-        <BriefModal item={modalItem} mo={mo} tw={tw} onClose={closeModal} />
+        <BriefModal item={modalItem} mo={mo} tw={tw} onClose={closeModal} edits={edits} onEdit={handleEdit} />
       )}
 
       {/* Header */}
@@ -1219,7 +1243,7 @@ export default function P() {
             textTransform: "uppercase", color: "#fff", margin: 0
           }}>Casa Altbau</h1>
           <p style={{
-            fontSize: "0.6rem", color: "#555", letterSpacing: "2px",
+            fontSize: "0.68rem", color: "#777", letterSpacing: "2px",
             textTransform: "uppercase", margin: "4px 0 0"
           }}>Content Planner · 80 Pieces · Reels + Carousels</p>
         </div>
@@ -1228,8 +1252,8 @@ export default function P() {
             <button key={v} onClick={() => { setVw(v); setAp(null); }} style={{
               ...bs,
               background: vw === v ? "#fff" : "#1a1a1a",
-              color: vw === v ? "#000" : "#666",
-              borderColor: vw === v ? "#fff" : "#2a2a2a"
+              color: vw === v ? "#000" : "#888",
+              borderColor: vw === v ? "#fff" : "#333"
             }}>{v}</button>
           ))}
         </div>
@@ -1238,7 +1262,7 @@ export default function P() {
       {/* Pillar Filters */}
       <div style={{ display: "flex", gap: "5px", marginBottom: "14px", flexWrap: "wrap" }}>
         <span style={{
-          fontSize: "0.58rem", color: "#444", letterSpacing: "2px",
+          fontSize: "0.66rem", color: "#666", letterSpacing: "2px",
           textTransform: "uppercase", display: "flex", alignItems: "center", marginRight: "4px"
         }}>PILLARS</span>
         {Object.entries(PILC).map(([p, c]) => (
@@ -1246,7 +1270,7 @@ export default function P() {
             ...bs, background: ap === p ? c : "#1a1a1a",
             color: ap === p ? "#000" : c,
             borderColor: ap === p ? c : c + "44",
-            fontSize: "0.62rem", padding: "4px 12px"
+            fontSize: "0.68rem", padding: "4px 12px"
           }}>{p}</button>
         ))}
       </div>
@@ -1257,8 +1281,8 @@ export default function P() {
           <button key={i} onClick={() => { setMo(i); setWk(0); }} style={{
             ...bs, fontWeight: mo === i ? 600 : 400,
             background: mo === i ? "#fff" : "#1a1a1a",
-            color: mo === i ? "#000" : "#666",
-            borderColor: mo === i ? "#fff" : "#2a2a2a",
+            color: mo === i ? "#000" : "#888",
+            borderColor: mo === i ? "#fff" : "#333",
             padding: "6px 13px"
           }}>M{i + 1} · {m}</button>
         ))}
@@ -1270,12 +1294,12 @@ export default function P() {
           <button key={w} onClick={() => setWk(w)} style={{
             ...bs,
             background: wk === w ? "#333" : "#1a1a1a",
-            color: wk === w ? "#fff" : "#555",
-            borderColor: wk === w ? "#444" : "#2a2a2a"
+            color: wk === w ? "#fff" : "#777",
+            borderColor: wk === w ? "#444" : "#333"
           }}>WK {mo * 4 + w + 1}</button>
         ))}
         <span style={{
-          fontSize: "0.58rem", color: "#444", marginLeft: "6px", letterSpacing: "1px"
+          fontSize: "0.66rem", color: "#666", marginLeft: "6px", letterSpacing: "1px"
         }}>WEEK {tw} / 16</span>
       </div>
 
@@ -1289,18 +1313,18 @@ export default function P() {
               return (
                 <div key={d} style={{
                   background: "#1a1a1a", border: `1px solid ${SC[d]}33`,
-                  borderRadius: "3px", padding: "3px 10px", fontSize: "0.62rem",
+                  borderRadius: "3px", padding: "3px 10px", fontSize: "0.7rem",
                   color: SC[d], letterSpacing: "1px", opacity: isMatch(d) ? 1 : 0.3
                 }}>
                   <span style={{ fontWeight: 600 }}>{d}</span> · {SN[d]}{" "}
-                  <span style={{ color: "#555", fontSize: "0.56rem" }}>({item?.f})</span>
+                  <span style={{ color: "#777", fontSize: "0.64rem" }}>({item?.f})</span>
                 </div>
               );
             })}
           </div>
 
           <p style={{
-            fontSize: "0.58rem", color: "#444", letterSpacing: "2px",
+            fontSize: "0.66rem", color: "#666", letterSpacing: "2px",
             textTransform: "uppercase", marginBottom: "8px"
           }}>Click any card to open full brief</p>
 
@@ -1312,7 +1336,7 @@ export default function P() {
             {DY.map((d) => (
               <div key={d} style={{
                 background: "#1a1a1a", borderRadius: "3px", padding: "4px",
-                textAlign: "center", fontSize: "0.58rem", fontWeight: 600,
+                textAlign: "center", fontSize: "0.66rem", fontWeight: 600,
                 color: SC[d], letterSpacing: "1.5px", opacity: isMatch(d) ? 1 : 0.3
               }}>{d}</div>
             ))}
@@ -1348,26 +1372,26 @@ export default function P() {
                     alignItems: "center", marginBottom: "5px"
                   }}>
                     <span style={{
-                      fontSize: "0.55rem", color: SC[d], fontWeight: 600,
-                      letterSpacing: "1px", textTransform: "uppercase", opacity: 0.8
+                      fontSize: "0.64rem", color: SC[d], fontWeight: 600,
+                      letterSpacing: "1px", textTransform: "uppercase", opacity: 0.85
                     }}>{item.f}</span>
                     <div style={{
                       width: "6px", height: "6px", borderRadius: "50%", background: "#4cdd80"
                     }} title="Script ready" />
                   </div>
                   <div style={{
-                    fontSize: "0.67rem", color: SC[d], fontWeight: 600,
+                    fontSize: "0.76rem", color: SC[d], fontWeight: 600,
                     marginBottom: "3px", lineHeight: 1.35
-                  }}>{item.t}</div>
+                  }}>{getEdited(item, "t")}</div>
                   <div style={{
-                    fontSize: "0.55rem", color: "#555", marginBottom: "5px", lineHeight: 1.35
-                  }}>{item.p}</div>
+                    fontSize: "0.64rem", color: "#777", marginBottom: "5px", lineHeight: 1.35
+                  }}>{getEdited(item, "p")}</div>
                   <div style={{
-                    fontSize: "0.58rem", color: "#777", fontStyle: "italic",
+                    fontSize: "0.68rem", color: "#999", fontStyle: "italic",
                     lineHeight: 1.4, borderLeft: `2px solid ${SC[d]}33`, paddingLeft: "6px"
-                  }}>{item.h}</div>
+                  }}>{getEdited(item, "h")}</div>
                   {st && (
-                    <div style={{ marginTop: "5px", fontSize: "0.52rem", color: stC[st] }}>
+                    <div style={{ marginTop: "5px", fontSize: "0.6rem", color: stC[st] }}>
                       ● {st}
                     </div>
                   )}
@@ -1380,9 +1404,9 @@ export default function P() {
                       }}
                       onClick={(e) => e.stopPropagation()}
                       style={{
-                        fontSize: "0.56rem", border: `1px solid ${stC[st] || "#222"}`,
+                        fontSize: "0.64rem", border: `1px solid ${stC[st] || "#333"}`,
                         borderRadius: "3px", padding: "2px 4px", background: "#1a1a1a",
-                        color: stC[st] || "#555", fontFamily: "Inter", outline: "none", width: "100%"
+                        color: stC[st] || "#777", fontFamily: "Inter", outline: "none", width: "100%"
                       }}
                     >
                       <option value="">Status</option>
@@ -1399,14 +1423,14 @@ export default function P() {
 
           {/* YT Row */}
           <p style={{
-            fontSize: "0.58rem", color: "#444", letterSpacing: "2px",
+            fontSize: "0.66rem", color: "#666", letterSpacing: "2px",
             textTransform: "uppercase", marginBottom: "6px", marginTop: "8px"
           }}>YouTube (Long-Form) — This Week</p>
           <div style={{
             background: "#141414", border: "1px solid #1f1f1f",
             borderRadius: "3px", padding: "10px", marginBottom: "20px", minHeight: "50px"
           }}>
-            <div style={{ fontSize: "0.68rem", color: "#555", fontStyle: "italic" }}>
+            <div style={{ fontSize: "0.76rem", color: "#777", fontStyle: "italic" }}>
               Plan your YouTube video here — different content, long-form
             </div>
           </div>
@@ -1417,7 +1441,7 @@ export default function P() {
       {vw === "overview" && (
         <div>
           <p style={{
-            fontSize: "0.58rem", color: "#444", letterSpacing: "2px",
+            fontSize: "0.66rem", color: "#666", letterSpacing: "2px",
             textTransform: "uppercase", marginBottom: "10px"
           }}>Month {mo + 1}: {MN[mo]} — Click any cell to open brief</p>
           <div style={{
@@ -1427,7 +1451,7 @@ export default function P() {
             {DY.map((d) => (
               <div key={d} style={{
                 background: "#1a1a1a", borderRadius: "3px", padding: "4px",
-                textAlign: "center", fontSize: "0.54rem", fontWeight: 600,
+                textAlign: "center", fontSize: "0.62rem", fontWeight: 600,
                 color: SC[d], letterSpacing: "1.5px", opacity: isMatch(d) ? 1 : 0.3
               }}>{SN[d].toUpperCase()}</div>
             ))}
@@ -1438,7 +1462,7 @@ export default function P() {
                 <React.Fragment key={`row-${w}`}>
                   <div style={{
                     background: "#1a1a1a", borderRadius: "3px", padding: "5px",
-                    fontSize: "0.56rem", fontWeight: 700, color: "#aaa",
+                    fontSize: "0.64rem", fontWeight: 700, color: "#bbb",
                     letterSpacing: "1.5px", display: "flex", alignItems: "center"
                   }}>WK{gi + 1}</div>
                   {DY.map((d) => {
@@ -1461,18 +1485,18 @@ export default function P() {
                       >
                         <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "2px" }}>
                           <span style={{
-                            fontSize: "0.48rem", color: SC[d], letterSpacing: "1px",
-                            textTransform: "uppercase", opacity: 0.7
+                            fontSize: "0.56rem", color: SC[d], letterSpacing: "1px",
+                            textTransform: "uppercase", opacity: 0.8
                           }}>{item.f}</span>
                           <div style={{
                             width: "4px", height: "4px", borderRadius: "50%", background: "#4cdd80"
                           }} />
                         </div>
                         <div style={{
-                          fontSize: "0.6rem", color: "#ddd", lineHeight: 1.4, marginBottom: "2px"
+                          fontSize: "0.68rem", color: "#e0e0e0", lineHeight: 1.4, marginBottom: "2px"
                         }}>{item.t}</div>
                         <div style={{
-                          fontSize: "0.5rem", color: "#555", lineHeight: 1.3
+                          fontSize: "0.58rem", color: "#777", lineHeight: 1.3
                         }}>{item.p}</div>
                       </div>
                     );
