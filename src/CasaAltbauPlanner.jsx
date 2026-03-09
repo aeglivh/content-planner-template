@@ -84,19 +84,19 @@ dn:`Slide 8 "Collected, not coordinated" is your save trigger. This reframes mat
 br:`A "too matchy" vignette — all one tone\nYour space showing contrast\nClose-up textures: wood grain vs metal vs fabric\nTwo objects side by side that shouldn't work but do`,
 ca:`A room where everything matches is a room that stopped evolving.\n\nContrast creates depth. A raw wood table next to a velvet chair. Brass next to matte black. The tension between things that don't "go together" is exactly what makes a room feel lived in.\n\nCollected, not coordinated.`,
 tg:"#casaaltbau #quietdesign #intentionalhome #interiordesignprinciples #collectedhome #interiordesign"},
-{d:"Tue",t:"Wishbone Chair (1949)",p:"Negative space, ergonomic curvature",f:"Carousel",h:"This isn't a chair. It's an argument about negative space.",
-sc:`SLIDE 1: Wishbone Chair, 1949. This isn't a chair. It's an argument about negative space.
-SLIDE 2: [Hero image — the Y-back is the focal point]
-SLIDE 3: Wegner carved away everything that wasn't essential. The backrest is one curved piece. The seat is woven paper cord. Every gram is justified.
-SLIDE 4: PRINCIPLE — Negative space. The open back makes the chair disappear while anchoring the table.
-SLIDE 5: PRINCIPLE — Ergonomic curvature. The Y-shaped back cradles the spine without bulk.
-SLIDE 6: 75 years later, it fits every dining room because it's shaped to a body, not styled to a moment.
-SLIDE 7: [In context — real dining room]
-SLIDE 8: TAKEAWAY — The strongest designs are the ones with the most removed.`,
-dn:`This carousel teaches subtraction. Every slide should feel like it has nothing extra. Practice what you preach.`,
-br:`Hero shot of the Y-back detail\nPaper cord seat texture\nThe chair at a dining table\nMultiple Wishbones in a row — the repetition effect`,
-ca:`Hans Wegner made over 500 chairs. The Wishbone is the one that refuses to age.\n\nIt works because of what isn't there. The open back, the minimal frame, the paper cord seat. Every decision was a subtraction.\n\nIf you want timeless, stop adding.`,
-tg:"#casaaltbau #quietdesign #intentionalhome #designthinking #apartmentdesign #homedecor"},
+{d:"Tue",t:"Wishbone Chair (1949)",p:"Steam-bent wood, paper cord seat",f:"Carousel",h:"One chair. Three weeks to make. Still no shortcut.",
+sc:`SLIDE 1: DESIGN ICON 02. Wishbone Chair, 1949. STILL ICONIC. One chair. Three weeks to make. Still no shortcut.
+SLIDE 2: [Full photo. Wishbone in a real home.]
+SLIDE 3: Y-back detail. Hans Wegner stole the shape from a Chinese emperor's throne. He kept seeing portraits of Danish merchants lounging on Ming dynasty chairs and figured, why is this not in every dining room?
+SLIDE 4: 14 parts. 100 steps. All by hand. The back and armrest are one single piece of steam-bent wood. No one has figured out how to fake that part yet.
+SLIDE 5: The seat was never meant to be paper. They wanted rope but it was post-war and there wasn't any. So they wove 120 meters of paper cord by hand instead. Turned out better than the original plan. [Paper cord weave detail]
+SLIDE 6: Carl Hansen took one look and said it looked like garden furniture. Made it anyway. Became the bestselling chair in the company's 116-year history. [Chair silhouette]
+SLIDE 7: Japan buys over a quarter of every chair made. There's a whole book about it, only in Japanese. They also still get the original seat height because in the 90s Europe's version went up 2cm. People got taller. The chair didn't. [Y-back close-up]
+SLIDE 8: [Full photo. Wishbone at a dining table, lived-in.]`,
+dn:`8-slide Instagram carousel, 1080x1350px.\nPost to Instagram and TikTok simultaneously.\nSlides use Casa Altbau brand design system:\nBackground: Dark Wine #3D1C24\nHeadlines: Linen White #F2EDE6\nLabels (PRINCIPAL/FACT): Olive Gold #B5A33A\nBody text: Warm Taupe #9B8A85\nCA mark: Dusty Rose #D4918E\nFonts: DM Serif Display (headlines), DM Sans (body)`,
+br:`Y-back detail\nPaper cord weave detail\nChair silhouette\nY-back close-up\nWishbone at a dining table, lived-in`,
+ca:`Hans Wegner stole the shape from a Chinese emperor's throne. The back and armrest are one steam-bent piece of wood. No one has figured out how to fake that yet.\n\nThe seat was supposed to be rope. Post-war rationing meant 120 metres of paper cord instead. Turned out better.\n\nCarl Hansen thought it looked like garden furniture. Made it anyway.`,
+tg:"#wishbonechair #hanswegner #carlhansen #designicon #danishdesign #midcenturymodern #diningchair #iconicdesign #interiordesigninspo #designhistory #scandinaviandesign #furnituredesign #casaaltbau #designeducation #interiordesign"},
 {d:"Wed",t:"Furniture against walls",p:"Depth, layering, perimeter bias",f:"Reel",h:"Your room isn't the problem. Your layout is.",
 sc:`Your room isn't the problem. Your layout is.
 
@@ -147,19 +147,19 @@ dn:`"Just... sofa" — the pause before "sofa" is everything. Let it hang. That'
 br:`Your sofa in context showing its room relationship\nMeasuring tape next to the sofa\nYou sitting on the sofa looking at the room\nDoorway shot showing sofa as the anchor`,
 ca:`The sofa isn't just seating. It's the gravitational center of the room.\n\nGet the scale wrong and every other piece will feel slightly off. Take your time with the decisions that carry the most weight.`,
 tg:"#casaaltbau #quietdesign #intentionalhome #interiordesignprinciples #designthinking #interiordesign"},
-{d:"Tue",t:"PH Lamp (1958)",p:"Glare control, light diffusion",f:"Carousel",h:"The PH Lamp solved a problem most people don't even notice.",
-sc:`SLIDE 1: PH Lamp, 1958. It solved a problem most people don't even notice.
-SLIDE 2: [Hero — the layered shades visible]
-SLIDE 3: Henningsen's obsession wasn't light. It was glare. Every shade is angled to reflect light downward. You never see the bulb.
-SLIDE 4: PRINCIPLE — Glare control. You see the light but never the source.
-SLIDE 5: PRINCIPLE — Diffusion layers. Multiple shades create soft gradients. It wraps you in light.
-SLIDE 6: It changed how Scandinavia experienced winter evenings. Warm, diffused, present but never aggressive. Like a good host.
-SLIDE 7: [In context — a dining table, a reading corner. Real warmth]
-SLIDE 8: TAKEAWAY — The best lighting is the kind you feel but can't point to.`,
-dn:`"Like a good host" is subtle and warm. The PH is hospitality in lamp form. Let slide 8 be the save trigger.`,
-br:`Layered shade detail close-up\nLight diffusion pattern on a surface\nThe lamp in a warm evening setting\nComparison: bare bulb vs PH glow`,
-ca:`Poul Henningsen didn't design a lamp. He redesigned how light enters a room.\n\nThe PH system hides the bulb behind layered shades, bouncing light in controlled arcs. No glare. No hotspots. Just warmth you feel without noticing.\n\nThe best light is invisible.`,
-tg:"#casaaltbau #quietdesign #intentionalhome #apartmentdesign #altbauliebe #homedecor"},
+{d:"Tue",t:"Eames Lounge (1956)",p:"Molded plywood, shock mount engineering",f:"Carousel",h:"One chair. Inspired by a baseball glove. Still the fastest way to never leave your living room.",
+sc:`SLIDE 1: DESIGN ICON 03. Eames Lounge, 1956. STILL ICONIC. One chair. Inspired by a baseball glove. Still the fastest way to never leave your living room.
+SLIDE 2: [Full photo. Eames Lounge in a real living room.]
+SLIDE 3: Molded plywood shell detail. Charles Eames wanted a chair that felt like a baseball glove. Not sculptural. Not a design statement. He literally told Herman Miller he wanted something that hugs you back. They spent three years trying to bend plywood without cracking it.
+SLIDE 4: Three shells. Three angles. Zero chance you sit upright. The seat, back, and headrest each tilt independently. It's engineered to make you recline whether you planned to or not.
+SLIDE 5: The rubber shock mounts almost ended it. Those little rubber discs connecting wood to aluminum? Engineers said they'd fail under stress. The Eameses tested hundreds of versions. They still fail sometimes. Herman Miller still replaces them for free. [Shock mount detail close-up]
+SLIDE 6: Billy Wilder got chair number one. The director was so famous for napping on set that the Eameses basically designed it for him. He asked for "something to take long naps in." They took that very seriously. [Chair silhouette]
+SLIDE 7: You can't get the original wood anymore. Brazilian rosewood was banned from export in 1992. So every vintage rosewood version is frozen in time. They go for $10K+ now. The chair outlived its own tree. [Rosewood veneer close-up]
+SLIDE 8: [Full photo. Eames Lounge at a reading nook or living room, lived-in.]`,
+dn:`8-slide Instagram carousel, 1080x1350px.\nPost to Instagram and TikTok simultaneously.\nSlides use Casa Altbau brand design system:\nBackground: Dark Wine #3D1C24\nHeadlines: Linen White #F2EDE6\nLabels (PRINCIPAL/FACT): Olive Gold #B5A33A\nBody text: Warm Taupe #9B8A85\nCA mark: Dusty Rose #D4918E\nFonts: DM Serif Display (headlines), DM Sans (body)`,
+br:`Molded plywood shell detail\nShock mount detail close-up\nChair silhouette\nRosewood veneer close-up\nFull room shot, lived-in`,
+ca:`The Eames Lounge started as a nap request from a film director and ended up in MoMA's permanent collection. Charles and Ray Eames spent years cracking plywood (literally) to get the curves right, used rubber shock mounts that engineers swore would fail, and originally wrapped it in Brazilian rosewood you can't even buy anymore.\n\n70 years later it's still the chair people point at and say "one day." Fair enough.\n\nFull story in the slides.`,
+tg:"#eameslounge #eamesloungechair #designicon #midcenturymodern #hermanmiller #charlesandrayeames #furnituredesign #iconicdesign #interiordesigninspo #designhistory #midcenturyfurniture #chairdesign #casaaltbau #designeducation #interiordesign"},
 {d:"Wed",t:"Art hung too high",p:"Relational placement, vertical proportion",f:"Carousel",h:"One thing. Costs nothing to fix. Changes everything.",
 sc:`SLIDE 1: One thing. Costs nothing to fix. Changes everything.
 SLIDE 2: [Art hung too high — the classic mistake. The gap between art and furniture is visible]
@@ -208,19 +208,19 @@ dn:`"Cringe at your own grid" is the line. Everyone has experienced this. Say it
 br:`Slow pan across your space — timeless, personal pieces\nA specific un-trendy piece you love\nPhone scrolling trending interiors (contrast)\nClose-up: leather, wood, linen — materials that age well`,
 ca:`Trends are seasonal. Rooms are not.\n\nNothing in my apartment was chosen because it was "in." Every piece is here because it solved a problem or earned its spot over time.\n\nThat's not boring. That's architecture thinking applied to living.`,
 tg:"#casaaltbau #quietdesign #intentionalhome #interiordesignprinciples #collectedhome #interiordesign"},
-{d:"Tue",t:"Barcelona Daybed (1930)",p:"Geometric clarity, focal anchoring",f:"Carousel",h:"The reason this works has nothing to do with how it looks.",
-sc:`SLIDE 1: Barcelona Daybed, 1930. The reason this works has nothing to do with how it looks.
-SLIDE 2: [Hero — the pure horizontal line dominates]
-SLIDE 3: Mies designed it for a king. One horizontal plane. No back. No arms. A rectangle that refuses to apologize.
-SLIDE 4: PRINCIPLE — Geometric clarity. A single plane that reads as both furniture and sculpture.
-SLIDE 5: PRINCIPLE — Focal anchoring. The daybed commands a room by sheer horizontal mass.
-SLIDE 6: It doesn't invite you to relax. It invites you to notice it. That tension is the whole design.
-SLIDE 7: [In context — a room where it anchors everything]
-SLIDE 8: TAKEAWAY — Sometimes a piece doesn't need to be comfortable. It needs to be undeniable.`,
-dn:`Slide 3 "refuses to apologize" is the personality. This piece has attitude. Let the carousel reflect that confidence.`,
-br:`Horizontal line emphasis in the shot\nThe daybed anchoring a room\nDetail of the leather and chrome\nWide shot showing its commanding presence`,
-ca:`Mies designed the Barcelona Daybed for the Spanish king. A single geometric plane that turns any room into a gallery.\n\nSome furniture works because you use it. This works because it exists. And honestly? That confidence is a design lesson.`,
-tg:"#casaaltbau #quietdesign #intentionalhome #designthinking #apartmentdesign #homedecor"},
+{d:"Tue",t:"PH Artichoke (1958)",p:"72-leaf glare shield, aircraft cable construction",f:"Carousel",h:"72 leaves. One rule. You should never see the bulb.",
+sc:`SLIDE 1: DESIGN ICON 04. PH Artichoke, 1958. STILL ICONIC. 72 leaves. One rule. You should never see the bulb.
+SLIDE 2: [Full photo. PH Artichoke hanging in a real home, warm glow.]
+SLIDE 3: Leaf layer detail. Henningsen grew up with gas lamps and never got over it. When electric light showed up in his town, he thought it was hideous. Harsh, flat, unflattering. He spent the rest of his career trying to make a bulb feel like a candle. The Artichoke was his answer, 34 years in the making.
+SLIDE 4: 72 copper leaves. Each one hung by hand. Twelve rows of six, positioned so you can't see the light source from any angle. Not above, not below, not from across the room. That was the only brief. He took it personally.
+SLIDE 5: It was so heavy they had to hang it from aircraft cables. The original was built for a waterfront restaurant in Copenhagen called Langelinie Pavillonen. When they finally got it up, they realized normal ceiling mounts wouldn't hold it. Steel aircraft cables. For a lamp. Nobody blinked. [Full lamp from below, interior architecture]
+SLIDE 6: Somebody stole the originals off the ceiling. In the middle of the night, someone broke into the restaurant and cut the Artichokes down. Just took them. Most were eventually recovered but imagine being that committed to a lighting fixture. [Lamp silhouette]
+SLIDE 7: He tested light with a candle in a baby carriage. Henningsen painted his attic black, put a candle on a plate inside a pram, wrapped it in greased paper, and rolled it around on floor tracks measuring how light moved. Thousands of readings. That's how every PH lamp started. In a baby carriage. [Copper leaf close-up, warm patina]
+SLIDE 8: [Full photo. PH Artichoke over a dining table, lived-in.]`,
+dn:`8-slide Instagram carousel, 1080x1350px.\nPost to Instagram and TikTok simultaneously.\nSlides use Casa Altbau brand design system:\nBackground: Dark Wine #3D1C24\nHeadlines: Linen White #F2EDE6\nLabels (PRINCIPAL/FACT): Olive Gold #B5A33A\nBody text: Warm Taupe #9B8A85\nCA mark: Dusty Rose #D4918E\nFonts: DM Serif Display (headlines), DM Sans (body)`,
+br:`Leaf layer detail\nFull lamp from below, interior architecture\nLamp silhouette\nCopper leaf close-up, warm patina\nOver a dining table, lived-in`,
+ca:`Poul Henningsen thought electric light was ugly. So he spent 34 years fixing it. The PH Artichoke has 72 hand-hung copper leaves, was originally so heavy it needed aircraft cables, and at some point somebody loved it enough to steal the originals right off the restaurant ceiling.\n\nOh, and he designed every PH lamp by rolling a candle around his blacked-out attic in a baby carriage. As you do.\n\nFull story in the slides.`,
+tg:"#phartichoke #poulhenningsen #louispoulsen #designicon #danishdesign #lightingdesign #scandinaviandesign #midcenturymodern #iconicdesign #interiordesigninspo #designhistory #pendantlamp #casaaltbau #designeducation #interiordesign"},
 {d:"Wed",t:"Too many small objects",p:"Hierarchy, visual fragmentation, rhythm",f:"Reel",h:"This is the most common reason a room doesn't feel finished.",
 sc:`This is the most common reason a room doesn't feel finished. Not too little. Too much.
 
@@ -268,19 +268,19 @@ dn:`"Scared to put your feet on the coffee table" — everyone knows this feelin
 br:`Styled vignette from one angle (gorgeous)\nReveal from another angle (impractical)\nYour space being used: you sitting, book open, lived-in\nPhone held up framing a "perfect" shot vs wider reality`,
 ca:`A room that exists only for the camera is a room nobody enjoys.\n\nDesign should pass two tests: does it photograph well, and can you live in it with your eyes closed? Both matter. But livability wins.`,
 tg:"#casaaltbau #quietdesign #intentionalhome #interiordesignprinciples #designthinking #interiordesign"},
-{d:"Tue",t:"Togo Sofa (1973)",p:"Soft mass distribution, posture shift",f:"Carousel",h:"Togo Sofa, 1973. Still the most honest seat in design.",
-sc:`SLIDE 1: Togo Sofa, 1973. Still the most honest seat in design.
-SLIDE 2: [Hero — show the pleats, the softness]
-SLIDE 3: Michel Ducaroy designed it without a frame. No legs. No skeleton. Just foam, fabric, and gravity.
-SLIDE 4: PRINCIPLE — Soft mass distribution. The body creates its own support.
-SLIDE 5: PRINCIPLE — Posture shift. It doesn't tell you how to sit. Revolutionary for 1973. Still radical now.
-SLIDE 6: 50 years later, it still feels radical because most furniture is still pretending to be architecture. The Togo gave up pretending.
-SLIDE 7: [Someone actually sitting in one — not a showroom shot]
-SLIDE 8: TAKEAWAY — The bravest design moves remove structure instead of adding it.`,
-dn:`Slide 7 matters most here: show someone sinking into it. The Togo is about use, not display.`,
-br:`Pleated fabric detail\nSomeone sitting naturally (not posed)\nNo-legs close-up: it touches the floor directly\nThe sofa in a real living room`,
-ca:`The Togo has no frame. No legs. No rules about how to sit.\n\nDucaroy stripped away everything rigid. Fifty years on, it's still the most relaxed piece ever made. And the one everyone melts into immediately.`,
-tg:"#casaaltbau #quietdesign #intentionalhome #apartmentdesign #altbauliebe #homedecor"},
+{d:"Tue",t:"Noguchi Table (1947)",p:"Asymmetric balance, self-stabilizing base",f:"Carousel",h:"Three parts. No screws. Born out of pure revenge.",
+sc:`SLIDE 1: DESIGN ICON 05. Noguchi Table, 1947. STILL ICONIC. Three parts. No screws. Born out of pure revenge.
+SLIDE 2: [Full photo. Noguchi Table in a real living room.]
+SLIDE 3: Wood base pivot joint detail. Noguchi designed this table to get back at someone who stole his idea. In 1939 a British furniture designer asked him to make a coffee table. Noguchi sent a model, heard nothing back. Then saw the guy selling a version of it in a magazine ad. While Noguchi was in an internment camp. His response? "In revenge, I made my own variant of my own table."
+SLIDE 4: Two identical pieces. One pin. That's the whole table. The base is two curved wooden forms, placed inversely and joined at a single pivot point. They form a self-stabilizing tripod. The glass top just sits on it. No connectors. No glue. It holds because the geometry is right.
+SLIDE 5: Herman Miller called it "knockdown furniture." Because it ships in three pieces and you assemble it yourself. In 1947, flat-pack before flat-pack was a thing. The whole idea was that sculpture shouldn't be precious. It should show up at your door in a box. [Glass top resting on base, assembly detail]
+SLIDE 6: He originally made it as a birthday present for his sister. George Nelson, Herman Miller's design director, stopped by Noguchi's studio and saw him building it from scavenged glass and two wood offcuts. Nelson basically said, "We're producing that." The birthday gift became one of the bestselling tables of the 20th century. [Table silhouette, side profile]
+SLIDE 7: They stopped making it. People lost their minds. Production ended in 1973. The table instantly became a collector's item. People were hunting them down for years. Herman Miller brought it back in 1984 and it hasn't stopped since. The Goodyear table that started all of this? Sold at auction for $4.45 million. [Wood grain close-up, walnut base]
+SLIDE 8: [Full photo. Noguchi Table in a lived-in room, books and coffee on it.]`,
+dn:`8-slide Instagram carousel, 1080x1350px.\nPost to Instagram and TikTok simultaneously.\nSlides use Casa Altbau brand design system:\nBackground: Dark Wine #3D1C24\nHeadlines: Linen White #F2EDE6\nLabels (PRINCIPAL/FACT): Olive Gold #B5A33A\nBody text: Warm Taupe #9B8A85\nCA mark: Dusty Rose #D4918E\nFonts: DM Serif Display (headlines), DM Sans (body)`,
+br:`Wood base pivot joint detail\nGlass top resting on base, assembly detail\nTable silhouette, side profile\nWood grain close-up, walnut base\nRoom shot with books and coffee on it`,
+ca:`The Noguchi Table exists because someone stole Isamu Noguchi's design and told him "anybody can make a three-legged table." He was in a WWII internment camp at the time. So he made his own version, better, and named it after himself just to be clear. Three parts, no screws, glass just resting on wood because the balance is that precise.\n\nIt went out of production in 1973. People panicked. It came back in 1984 and hasn't left since.\n\nFull story in the slides.`,
+tg:"#noguchitable #isamunoguchi #hermanmiller #designicon #midcenturymodern #coffeetable #moderndesign #sculptureforuse #iconicdesign #interiordesigninspo #designhistory #furnituredesign #casaaltbau #designeducation #interiordesign"},
 {d:"Wed",t:"Curtains too short",p:"Vertical elongation, framing",f:"Reel",h:"If your ceilings feel low, check your curtains.",
 sc:`If your ceilings feel low, check your curtains.
 
@@ -332,19 +332,19 @@ dn:`"Paying rent for the whole thing" — funny because it's financially true. D
 br:`Camera tilting from furniture level to empty ceiling\nFloor lamp or tall plant reaching upward\nComparison: flat room vs room with vertical elements\nArt creating vertical interest`,
 ca:`A room with nothing above eye level is missing a dimension.\n\nThe ceiling is half the space. A tall lamp, a high shelf, art that reaches upward. Vertical proportion turns a flat layout into atmosphere.`,
 tg:"#casaaltbau #quietdesign #intentionalhome #interiordesignprinciples #designthinking #interiordesign"},
-{d:"Tue",t:"Eames Lounge (1956)",p:"Material contrast, structural expression",f:"Carousel",h:"It's not about comfort. It's about tension between materials.",
-sc:`SLIDE 1: Eames Lounge, 1956. Not about comfort. About tension between materials.
-SLIDE 2: [Hero — plywood shells visible, leather glowing]
-SLIDE 3: Molded plywood. Leather. Aluminum. Three materials with no business together. That contrast is the entire point.
-SLIDE 4: PRINCIPLE — Material contrast. Warm against cold. Organic against industrial.
-SLIDE 5: PRINCIPLE — Structural expression. The shell is visible. The joints are exposed. Honesty as aesthetic.
-SLIDE 6: It refused to look like furniture. It looked like engineering that happened to be comfortable enough to fall asleep in.
-SLIDE 7: [In context — a living room, not a museum. Bonus if it looks lived with]
-SLIDE 8: TAKEAWAY — The best pieces hold tension between things that shouldn't work together.`,
-dn:`Slide 6 is warm and slightly funny. "Comfortable enough to fall asleep in" is relatable even for people who've never sat in one.`,
-br:`Plywood shell detail\nLeather grain close-up\nAluminum joint detail\nThe chair in a real living room`,
-ca:`Plywood, leather, and aluminum. Three materials that shouldn't coexist. The Eames Lounge made them inseparable.\n\nThe lesson isn't about the chair. It's about contrast. (Also, it's the best place to read. But that's secondary.)`,
-tg:"#casaaltbau #quietdesign #intentionalhome #designthinking #apartmentdesign #homedecor"},
+{d:"Tue",t:"Barcelona Chair (1929)",p:"Roman sella curulis, steel X-frame",f:"Carousel",h:"Built for a king. The king never sat in it.",
+sc:`SLIDE 1: DESIGN ICON 06. Barcelona Chair, 1929. STILL ICONIC. Built for a king. The king never sat in it.
+SLIDE 2: [Full photo. Barcelona Chair in a real interior.]
+SLIDE 3: Chrome frame detail. Lilly Reich probably designed it. Mies van der Rohe gets all the credit but his partner and collaborator Lilly Reich handled the interiors and furniture for the pavilion. Recent scholarship puts her as the true architect of the design. After they stopped working together, Mies never designed another piece of furniture. Make of that what you will.
+SLIDE 4: The pavilion it was made for only stood for seven months. The German Pavilion was pulled down after the Exposition ended. The chair survived. They rebuilt the entire building from scratch in 1986 because people couldn't stop talking about a place that no longer existed. The chairs were already back in production by then.
+SLIDE 5: He based it on a 2,000-year-old Roman chair. The sella curulis was a folding seat used by magistrates and emperors. Mies took the crossed-leg structure, remade it in steel, and stripped everything decorative. A modern throne with no gold, no bulk, and no apology. [Steel X-frame cross detail]
+SLIDE 6: The original cushions were ivory pigskin. Each cushion is now cut from a single cowhide. Hand-welted, hand-tufted, every button done individually. The leather straps underneath are dyed to match. It takes longer to upholster than to build the frame. Knoll still stamps Mies's signature into the steel. [Leather tufting close-up]
+SLIDE 7: One curve becomes the back. The other becomes the seat. The frame is two crossed steel bars. The back legs sweep up into the backrest. The front legs curve forward into the seat. That's it. The whole structure is in the intersection. Originally bolted together, redesigned in 1950 so the frame could be one seamless piece of stainless steel. [Chair silhouette, side profile]
+SLIDE 8: [Full photo. Barcelona Chair in a living room or lobby, lived-in.]`,
+dn:`8-slide Instagram carousel, 1080x1350px.\nPost to Instagram and TikTok simultaneously.\nSlides use Casa Altbau brand design system:\nBackground: Dark Wine #3D1C24\nHeadlines: Linen White #F2EDE6\nLabels (PRINCIPAL/FACT): Olive Gold #B5A33A\nBody text: Warm Taupe #9B8A85\nCA mark: Dusty Rose #D4918E\nFonts: DM Serif Display (headlines), DM Sans (body)`,
+br:`Chrome frame detail\nSteel X-frame cross detail\nLeather tufting close-up\nChair silhouette, side profile\nRoom shot with lived-in context`,
+ca:`The Barcelona Chair was designed as a modern throne for the King and Queen of Spain. They never sat in it. The pavilion it was made for lasted seven months. And the person who probably actually designed it -- Lilly Reich -- barely gets mentioned.\n\nMies based the frame on a 2,000-year-old Roman magistrate's chair, stripped everything decorative, and built it from two crossed steel curves. After he and Reich stopped working together, he never designed another piece of furniture.\n\nFull story in the slides.`,
+tg:"#barcelonachair #miesvanderrohe #lillyreich #knoll #designicon #modernistdesign #bauhaus #iconicfurniture #interiordesigninspo #designhistory #midcenturymodern #furnituredesign #casaaltbau #designeducation #interiordesign"},
 {d:"Wed",t:"Too many focal points",p:"Hierarchy clarity",f:"Reel",h:"Your room isn't busy. It's competing with itself.",
 sc:`Your room isn't busy. It's competing with itself.
 
@@ -395,19 +395,19 @@ dn:`"Time capsule nobody wants to open" — people instantly picture that one IK
 br:`Close-ups of pieces from different eras in your home\nA vintage find\nWide shot showing the "layered over time" feeling\nYou examining a piece with care`,
 ca:`A room furnished in a weekend is frozen in one moment.\n\nThe most interesting spaces are layered over time. Each piece carries a different decision, a different story. That's what collected feels like.`,
 tg:"#casaaltbau #quietdesign #intentionalhome #interiordesignprinciples #collectedhome #interiordesign"},
-{d:"Tue",t:"Noguchi Table (1948)",p:"Asymmetrical balance, transparency",f:"Carousel",h:"Noguchi Table, 1948. A lesson in what you can take away.",
-sc:`SLIDE 1: Noguchi Table, 1948. A lesson in what you can take away.
-SLIDE 2: [Hero — the glass transparency is the hook]
-SLIDE 3: Two identical wooden legs at different angles. A glass top that hides nothing. The table is visible through itself.
-SLIDE 4: PRINCIPLE — Asymmetrical balance. Nothing is mirrored. Everything is stable.
-SLIDE 5: PRINCIPLE — Transparency. The glass lets the floor flow through the furniture.
-SLIDE 6: Noguchi called it a sculpture you could put your coffee on. Which might be the best design brief ever written.
-SLIDE 7: [In context — floor visible through the glass]
-SLIDE 8: TAKEAWAY — Transparency in furniture isn't minimalism. It's generosity toward the rest of the room.`,
-dn:`"Best design brief ever written" — delivered with genuine admiration and a touch of envy.`,
-br:`Glass transparency showing floor beneath\nThe two legs at opposing angles\nCoffee cup on the table\nThe table in a living room, space flowing through it`,
-ca:`Two legs at opposing angles. A glass top that disappears. The Noguchi takes up space while giving it back.\n\nTransparency isn't hiding. It's making room for everything else to be seen.`,
-tg:"#casaaltbau #quietdesign #intentionalhome #designthinking #apartmentdesign #homedecor"},
+{d:"Tue",t:"Wassily Chair (1925)",p:"Tubular steel, Bauhaus material experiment",f:"Carousel",h:"The first steel tube chair ever made. Inspired by a bicycle.",
+sc:`SLIDE 1: DESIGN ICON 07. Wassily Chair, 1925. STILL ICONIC. The first steel tube chair ever made. Inspired by a bicycle.
+SLIDE 2: [Full photo. Wassily Chair in a real interior.]
+SLIDE 3: Chrome tube bend detail. Breuer bought a bike and changed furniture forever. He was 23, riding around Dessau, looked down at the handlebars and thought: why isn't furniture made from this? Asked a local shop how they bent the tubes. "Like macaroni." That was enough.
+SLIDE 4: It's not named after who you think. Breuer called it the B3. Decades later an Italian manufacturer found out Kandinsky had loved the prototype so much Breuer made him a personal copy. They named the chair after the painter. He had nothing to do with designing it.
+SLIDE 5: He ran the woodworking shop. Made it from steel. Breuer headed the carpentry department at the Bauhaus. Then showed up with a chair made of bent metal tubes and leather straps. No wood anywhere. He called it "my most extreme work." [Full frame structure, side angle]
+SLIDE 6: The original straps weren't leather. The first version used Eisengarn, a cotton yarn coated in wax until it went stiff and shiny like iron. A Bauhaus weaving student developed the material specifically for this chair. Leather came later in the 60s. [Strap and frame connection close-up]
+SLIDE 7: The Nazis shut down the school that made it. Breuer was a Hungarian Jew. The Bauhaus was closed, he fled to London, then the U.S. The chair survived every regime that tried to erase the movement that created it. [Chrome frame reflection detail]
+SLIDE 8: [Full photo. Wassily Chair in a living room, lived-in.]`,
+dn:`8-slide Instagram carousel, 1080x1350px.\nPost to Instagram and TikTok simultaneously.\nSlides use Casa Altbau brand design system:\nBackground: Dark Wine #3D1C24\nHeadlines: Linen White #F2EDE6\nLabels (PRINCIPAL/FACT): Olive Gold #B5A33A\nBody text: Warm Taupe #9B8A85\nCA mark: Dusty Rose #D4918E\nFonts: DM Serif Display (headlines), DM Sans (body)`,
+br:`Chrome tube bend detail\nFull frame structure, side angle\nStrap and frame connection close-up\nChrome frame reflection detail\nRoom shot with lived-in context`,
+ca:`Marcel Breuer was 23, riding a bicycle, looked at his handlebars and thought: why not furniture? That's how the first tubular steel chair got started. He ran the Bauhaus woodworking shop and showed up with a chair made entirely of metal. Kandinsky loved it so much he got a personal copy. The Nazis closed the Bauhaus. The chair is still in production 100 years later.\n\nFull story in the slides.`,
+tg:"#wassilychair #marcelbreuer #bauhaus #knoll #designicon #tubularsteel #modernistdesign #iconicfurniture #interiordesigninspo #designhistory #midcenturymodern #furnituredesign #casaaltbau #designeducation #interiordesign"},
 {d:"Wed",t:"Mixed light temperatures",p:"Atmosphere coherence",f:"Reel",h:"One thing is making your home feel like a waiting room.",
 sc:`One thing is making your home feel like a waiting room.
 
@@ -457,19 +457,19 @@ dn:`"Remember japandi?" — micro-joke. Quick, throwaway. "9pm on a Tuesday" is 
 br:`Your room — pieces that resist a single label\nSomething that doesn't fit any trend but works perfectly\nPhone scrolling style labels (contrast)\nYou using the space naturally`,
 ca:`Style labels are cages disguised as clarity.\n\nStop asking "does this fit my aesthetic?" Start asking "does this make my room better at 9pm on a Tuesday?"`,
 tg:"#casaaltbau #quietdesign #intentionalhome #interiordesignprinciples #collectedhome #interiordesign"},
-{d:"Tue",t:"Akari Lamp (1951)",p:"Diffused light, atmosphere",f:"Carousel",h:"Akari isn't a lamp. It's a way of softening a room.",
-sc:`SLIDE 1: Akari, 1951. Not a lamp. A way of softening a room.
-SLIDE 2: [Hero — the glow, not just the form]
-SLIDE 3: Noguchi made it from washi paper and bamboo. Materials that dissolve light instead of directing it.
-SLIDE 4: PRINCIPLE — Diffused light. No beam, no spot, no edge. Just a glow.
-SLIDE 5: PRINCIPLE — Atmospheric presence. It changes a room even when it's off. Deeply unfair advantage for a lamp.
-SLIDE 6: Over 100 shapes exist. Each turns electric light into something closer to candlelight.
-SLIDE 7: [A room at dusk with Akari glowing]
-SLIDE 8: TAKEAWAY — The best light sources don't illuminate. They transform.`,
-dn:`"Deeply unfair advantage for a lamp" — affectionate humor about an object being too good at its job.`,
-br:`Washi paper texture close-up\nThe glow in a dark room\nAkari off vs on (the shape vs the light)\nMultiple shapes if you can find imagery`,
-ca:`Akari means "light as illumination." Noguchi designed over 100 forms, each dissolving electric light into something softer.\n\nIt changes a room even when it's off. That's presence.`,
-tg:"#casaaltbau #quietdesign #intentionalhome #designthinking #apartmentdesign #homedecor"},
+{d:"Tue",t:"E-1027 Table (1927)",p:"Chrome arm, height-adjustable, bedside function",f:"Carousel",h:"Designed so her sister could eat breakfast in bed. That's the whole brief.",
+sc:`SLIDE 1: DESIGN ICON 08. E-1027 Table, 1927. STILL ICONIC. Designed so her sister could eat breakfast in bed. That's the whole brief.
+SLIDE 2: [Full photo. E-1027 table beside a bed or sofa.]
+SLIDE 3: Chrome tube and glass detail. Le Corbusier was so obsessed with this house he vandalised it. Gray designed the table for her villa on the French Riviera. After she moved out, Le Corbusier painted murals all over the white walls without permission. She called it vandalism. He never credited her. For decades people assumed he designed it.
+SLIDE 4: The name is a love letter in code. E for Eileen. 10 for J (Jean). 2 for B (Badovici). 7 for G (Gray). The house and table are named after the couple who built them. They broke up right after it was finished.
+SLIDE 5: It slides over the bed. That's the whole point. Her sister hated crumbs on the sheets. Gray designed a glass top on an adjustable chrome arm that holds a tray above the mattress. Crumbs fall through. Problem solved, forever. [Height adjustment mechanism]
+SLIDE 6: Three materials. No decoration. Chrome steel, a glass disc, and nothing else. Height-adjustable, so it works as a bedside table, a sofa table, or a reading surface. One design, every room. [Full table profile]
+SLIDE 7: She had no architecture training. Gray studied painting, then lacquer work. Zero formal training in architecture or furniture. This was her first table. The house was her first building. Both ended up in MoMA. [Table in context, close angle]
+SLIDE 8: [Full photo. E-1027 table in a lived-in room.]`,
+dn:`8-slide Instagram carousel, 1080x1350px.\nPost to Instagram and TikTok simultaneously.\nSlides use Casa Altbau brand design system:\nBackground: Dark Wine #3D1C24\nHeadlines: Linen White #F2EDE6\nLabels (PRINCIPAL/FACT): Olive Gold #B5A33A\nBody text: Warm Taupe #9B8A85\nCA mark: Dusty Rose #D4918E\nFonts: DM Serif Display (headlines), DM Sans (body)`,
+br:`Chrome tube and glass detail\nHeight adjustment mechanism\nFull table profile\nTable in context, close angle\nLived-in room context`,
+ca:`Eileen Gray designed this table because her sister wanted breakfast in bed without crumbs. A chrome arm, a glass disc, adjustable height. She also designed the house it was made for. Le Corbusier painted murals all over the walls without permission and never credited her. She had no formal training. Both the house and the table are in MoMA.\n\nFull story in the slides.`,
+tg:"#eileengray #e1027 #classicon #designicon #modernistdesign #womenindesign #irishdesign #iconicfurniture #interiordesigninspo #designhistory #midcenturymodern #furnituredesign #casaaltbau #designeducation #interiordesign"},
 {d:"Wed",t:"Furniture too small for the room",p:"Scale imbalance, mass confidence",f:"Carousel",h:"Your furniture isn't wrong. It's just too small for the room.",
 sc:`SLIDE 1: Your furniture isn't wrong. It's just too small for the room.
 SLIDE 2: [A large room with undersized furniture — everything floating]
@@ -520,19 +520,19 @@ dn:`"Aggressive 4pm sun in your eyes during a movie" — oddly specific, univers
 br:`Same spot at 3-4 times of day\nLight moving across a wall (timelapse or cuts)\nSun hitting where you sit\nShadows shifting across a surface`,
 ca:`Every room has a light personality. Cool north. Warm south. Morning east. Golden west.\n\nWork with it, not against it. The light was here first.`,
 tg:"#casaaltbau #quietdesign #intentionalhome #interiordesignprinciples #designthinking #interiordesign"},
-{d:"Tue",t:"Cesca Chair (1928)",p:"Material contrast, transparency",f:"Carousel",h:"Cesca Chair, 1928. Still the sharpest line in any dining room.",
-sc:`SLIDE 1: Cesca Chair, 1928. Still the sharpest line in any dining room.
-SLIDE 2: [Hero — the cantilever curve]
-SLIDE 3: Breuer bent a single steel tube into a cantilever. No back legs. The chair floats. For nearly 100 years.
-SLIDE 4: PRINCIPLE — Material contrast. Tubular steel against woven cane. Industrial meets handcraft.
-SLIDE 5: PRINCIPLE — Visual transparency. The open frame lets the room flow through the chair.
-SLIDE 6: Nearly 100 years later, still the chair that makes any table look sharper. Without trying. Which is honestly annoying.
-SLIDE 7: [Real dining room — bonus if mixed with other chairs]
-SLIDE 8: TAKEAWAY — When a design is structurally honest, style becomes timeless.`,
-dn:`"Honestly annoying" — affectionate jealousy toward a chair. Relatable for design lovers.`,
-br:`Cantilever detail\nCane weave close-up\nSteel tube bending\nThe chair at a dining table`,
-ca:`Breuer bent a single steel tube and eliminated back legs. The Cesca floats.\n\nSteel and cane. The tension between materials is what makes it timeless.`,
-tg:"#casaaltbau #quietdesign #intentionalhome #designthinking #apartmentdesign #homedecor"},
+{d:"Tue",t:"Anglepoise (1932)",p:"Spring mechanism, arm anatomy, task lighting",f:"Carousel",h:"A car engineer invented a lamp. It outlasted the car industry that made him.",
+sc:`SLIDE 1: DESIGN ICON 09. Anglepoise, 1932. STILL ICONIC. A car engineer invented a lamp. It outlasted the car industry that made him.
+SLIDE 2: [Full photo. Anglepoise lamp on a desk in a real interior.]
+SLIDE 3: Spring mechanism detail. He wasn't a designer. He was a suspension engineer. George Carwardine built car suspension systems. When the company went bankrupt, he started tinkering with springs in his garden shed in Bath. He invented one that could hold any position you put it in. Then thought: that's a lamp.
+SLIDE 4: They pulled one out of a lake after 40 years. It still worked. During WWII, Anglepoise made lamps for bomber navigation tables. In 1985 they salvaged a crashed plane from Loch Ness. Gave the lamp a new battery. It switched on.
+SLIDE 5: It moves like a human arm. That was the point. Springs, cranks, and levers arranged so you can reposition it with one finger and it stays exactly where you leave it. Carwardine modelled the movement on the anatomy of an arm. Still the same mechanism today. [Arm joint close-up]
+SLIDE 6: He wanted to call it the Equipoise. The patent office said no. "Equipoise" was already a word, so the Trade Marks Registry rejected it. They went with Anglepoise instead. The first version had four springs and was built for factories. The three-spring version for homes came in 1935 and never stopped. [Base and spring assembly]
+SLIDE 7: The BBC banned it for encouraging furtive thoughts. In 1949, a BBC executive issued a memo forbidding staff from working under only an Anglepoise. He believed a man in a dim room with a desk lamp would "nurture furtive ideas and produce degenerate programme material." The Director General overruled him. [Lamp shade detail, warm light]
+SLIDE 8: [Full photo. Anglepoise on a table, lived-in home.]`,
+dn:`8-slide Instagram carousel, 1080x1350px.\nPost to Instagram and TikTok simultaneously.\nSlides use Casa Altbau brand design system:\nBackground: Dark Wine #3D1C24\nHeadlines: Linen White #F2EDE6\nLabels (PRINCIPAL/FACT): Olive Gold #B5A33A\nBody text: Warm Taupe #9B8A85\nCA mark: Dusty Rose #D4918E\nFonts: DM Serif Display (headlines), DM Sans (body)`,
+br:`Spring mechanism detail\nArm joint close-up\nBase and spring assembly\nLamp shade detail, warm light\nDesk or table, lived-in home`,
+ca:`George Carwardine wasn't a designer. He was a car suspension engineer. When the company went bankrupt he started tinkering in his garden shed and invented a spring that holds any position. Then he put a light on it. During WWII they put one in a bomber that crashed into Loch Ness. 40 years later they fished it out. It still worked.\n\nAlso, the BBC once banned it for encouraging "furtive ideas." That got overruled.\n\nFull story in the slides.`,
+tg:"#anglepoise #georgecarwardine #britishdesign #designicon #tasklamp #industrialdesign #iconicdesign #lightingdesign #interiordesigninspo #designhistory #vintagelighting #casaaltbau #designeducation #interiordesign"},
 {d:"Wed",t:"Blocked walkways",p:"Ergonomic clearance",f:"Reel",h:"If your room feels small, it's not the room. It's the path.",
 sc:`If your room feels small, it's not the room. It's the path.
 
@@ -582,19 +582,19 @@ dn:`"Seventeen phone chargers" — hyperbolic, specific, and universally true. A
 br:`Beautiful room, tilt to chaos — cables, remotes, stacked stuff\nClean solution: cabinet, basket, hidden drawer\nYou closing a cabinet with satisfaction\nThe "real life" surface vs the "stored" surface`,
 ca:`Storage is what protects your design from real life.\n\nWithout it, surfaces become shelves and corners become dumping grounds. Solve where things go before deciding how things look.`,
 tg:"#casaaltbau #quietdesign #intentionalhome #interiordesignprinciples #designthinking #interiordesign"},
-{d:"Tue",t:"Tizio Lamp (1972)",p:"Mechanical articulation",f:"Carousel",h:"Tizio solved a problem most desk lamps still haven't.",
-sc:`SLIDE 1: Tizio Lamp, 1972. It solved a problem most desk lamps still haven't.
-SLIDE 2: [Hero — articulated arms visible]
-SLIDE 3: Sapper used counterweights instead of springs. The arms hold any position. Electricity runs through the structure itself.
-SLIDE 4: PRINCIPLE — Mechanical articulation. Every joint is purposeful. Nothing wobbles.
-SLIDE 5: PRINCIPLE — Integrated function. The body IS the wiring. No visible cables. Which is frankly showing off.
-SLIDE 6: It turned a desk lamp into an instrument. The kind of object that makes you sit up straighter.
-SLIDE 7: [At a desk or in a reading corner]
-SLIDE 8: TAKEAWAY — The most functional objects are often the most beautiful.`,
-dn:`"Frankly showing off" — affectionate humor about overachieving engineering. Deliver with mock disapproval.`,
-br:`Articulated arm detail\nCounterweight mechanism\nThe lamp in position at a desk\nNo-cable close-up`,
-ca:`Sapper replaced springs with counterweights and ran electricity through the structure. No wires. No wobble.\n\nThe Tizio is engineering expressed as elegance.`,
-tg:"#casaaltbau #quietdesign #intentionalhome #designthinking #apartmentdesign #homedecor"},
+{d:"Tue",t:"Componibili (1967)",p:"Injection-moulded ABS, pressure-lock modules",f:"Carousel",h:"Plastic storage. In MoMA. Still Kartell's bestseller after 57 years.",
+sc:`SLIDE 1: DESIGN ICON 10. Componibili, 1967. STILL ICONIC. Plastic storage. In MoMA. Still Kartell's bestseller after 57 years.
+SLIDE 2: [Full photo. Componibili stacked beside a bed or in a bathroom.]
+SLIDE 3: Interlocking module detail. Her husband founded the company. She made it famous. Anna Castelli Ferrieri co-founded Kartell with her husband in 1949. One of the first women in Italy to graduate in architecture. She designed the product that's outsold everything else they've ever made.
+SLIDE 4: No screws. No glue. You just stack them. Each cylinder locks into the next by pressure alone. The door slides open through a hole that also lets the whole thing be injection-moulded in one shot. The engineering is the design.
+SLIDE 5: Plastic wasn't furniture. She made it furniture. In the 1960s plastic was factory material. Ferrieri proved it could be beautiful and last decades. Kartell was the first company in the world to use ABS plastic for home furnishings. [Colour range, stacked units]
+SLIDE 6: It works in every room because it was designed for none of them. Bedside table, bathroom storage, bar cart topper. Add castors, add a lid that doubles as a tray, stack two or four. You decide what it is. [Componibili in a bathroom or hallway]
+SLIDE 7: MoMA and the Pompidou both have one. Shown at MoMA in 1972 at the exhibition that introduced America to Italian design. Permanent collection ever since. The Pompidou has one too. For a plastic cylinder. [Lid/tray detail]
+SLIDE 8: [Full photo. Componibili in a lived-in bedroom.]`,
+dn:`8-slide Instagram carousel, 1080x1350px.\nPost to Instagram and TikTok simultaneously.\nSlides use Casa Altbau brand design system:\nBackground: Dark Wine #3D1C24\nHeadlines: Linen White #F2EDE6\nLabels (PRINCIPAL/FACT): Olive Gold #B5A33A\nBody text: Warm Taupe #9B8A85\nCA mark: Dusty Rose #D4918E\nFonts: DM Serif Display (headlines), DM Sans (body)`,
+br:`Interlocking module detail\nColour range, stacked units\nComponibili in a bathroom or hallway\nLid/tray detail\nLived-in bedroom context`,
+ca:`Anna Castelli Ferrieri co-founded Kartell, was one of the first women in Italy to graduate in architecture, and designed a plastic cylinder that's been their bestseller for 57 years. No screws. No glue. Just stack. It's in MoMA and the Pompidou. Plastic wasn't furniture until she decided it was.\n\nFull story in the slides.`,
+tg:"#componibili #kartell #annacastelliferrieri #designicon #italiandesign #moderndesign #iconicdesign #interiordesigninspo #designhistory #modulardesign #furnituredesign #casaaltbau #designeducation #interiordesign"},
 {d:"Wed",t:"Stacked statement pieces",p:"Dominant vs supporting elements",f:"Reel",h:"Your room has three lead singers and no backup.",
 sc:`Your room has three lead singers and no backup.
 
@@ -645,19 +645,19 @@ dn:`Record the actual clap echo test. Real sound > any explanation.`,
 br:`Clap in an echoey room (record the reverb)\nTextiles absorbing sound: rug, curtains\nCozy room that looks AND sounds warm\nFabric textures close-up`,
 ca:`A room that echoes isn't finished. No matter how it looks.\n\nAcoustics are invisible comfort. Textiles absorb sound and transform how a space feels. Design for the ears too.`,
 tg:"#casaaltbau #quietdesign #intentionalhome #interiordesignprinciples #collectedhome #interiordesign"},
-{d:"Tue",t:"Florence Knoll Sofa (1954)",p:"Proportional restraint",f:"Carousel",h:"She didn't design furniture. She designed boundaries.",
-sc:`SLIDE 1: Florence Knoll Sofa, 1954. She didn't design furniture. She designed boundaries.
-SLIDE 2: [Hero — low back, clean lines. Restraint is the point]
-SLIDE 3: Low back. Clean lines. Precise proportions. Furniture that knew its place. No showing off. Just showing up.
-SLIDE 4: PRINCIPLE — Proportional restraint. Every dimension deliberate. Nothing oversized.
-SLIDE 5: PRINCIPLE — Architectural thinking. Designed as part of the room, not a standalone statement.
-SLIDE 6: Knoll said she designed these "to fill the gaps." That humility made them timeless.
-SLIDE 7: [In context — completing a space without dominating it]
-SLIDE 8: TAKEAWAY — The best furniture doesn't demand attention. It completes the room.`,
-dn:`"To fill the gaps" is a powerful quote. Let it carry the slide. The humility IS the lesson.`,
-br:`Clean lines detail\nThe sofa in a room where it completes, not competes\nLow back showing the room behind it\nKnoll furniture in an architectural setting`,
-ca:`Florence Knoll designed "to fill the gaps." Not to steal the show.\n\nHer sofas complete a room without competing with it. That's the highest form of furniture design.`,
-tg:"#casaaltbau #quietdesign #intentionalhome #designthinking #apartmentdesign #homedecor"},
+{d:"Tue",t:"Tulip Table (1956)",p:"Pedestal base, aluminium stem, single-form logic",f:"Carousel",h:"One leg. Because four was a slum.",
+sc:`SLIDE 1: DESIGN ICON 11. Tulip Table, 1956. STILL ICONIC. One leg. Because four was a slum.
+SLIDE 2: [Full photo. Tulip Table in a real dining room.]
+SLIDE 3: Pedestal base detail. Saarinen looked under a dining table and was disgusted. "The undercarriage of chairs and tables makes an ugly, confusing, unrestful world." His solution: remove every leg but one. He called it clearing up "the slum of legs." That phrase made the cover of TIME in 1956.
+SLIDE 4: He wanted it to be one material. The technology didn't exist yet. The whole point was a single unbroken form. But fiberglass kept snapping at the base. So he used cast aluminium for the stem and plastic for the top. It bothered him for the rest of his life. Which wasn't long.
+SLIDE 5: He trained as a sculptor before he ever touched furniture. Saarinen studied sculpture in Paris before architecture at Yale. His father was a famous architect. His mother was a textile artist. The Tulip is a sculpture that happens to hold dinner plates. [Base curve meeting the floor]
+SLIDE 6: The TWA Terminal is this table turned into a building. Saarinen's airport terminal at JFK uses the same sweeping curves and single-form logic as the Tulip. An architecture historian called it "the pedestal chair turned into a building." He designed both at the same time. [Table top edge, marble detail]
+SLIDE 7: He died at 51. This was his last furniture design. Brain tumour, 1961. The Pedestal Collection had been out for three years. He never saw it become the most copied table of the 20th century. Knoll has made it continuously since 1957. They've never stopped. [Full table profile, white interior]
+SLIDE 8: [Full photo. Tulip Table in a lived-in dining room, chairs around it.]`,
+dn:`8-slide Instagram carousel, 1080x1350px.\nPost to Instagram and TikTok simultaneously.\nSlides use Casa Altbau brand design system:\nBackground: Dark Wine #3D1C24\nHeadlines: Linen White #F2EDE6\nLabels (PRINCIPAL/FACT): Olive Gold #B5A33A\nBody text: Warm Taupe #9B8A85\nCA mark: Dusty Rose #D4918E\nFonts: DM Serif Display (headlines), DM Sans (body)`,
+br:`Pedestal base detail\nBase curve meeting the floor\nTable top edge, marble detail\nFull table profile, white interior\nLived-in dining room with chairs`,
+ca:`Eero Saarinen hated table legs. Called them a slum. So he designed a table with one. He wanted it made from a single material but the technology didn't exist yet, so he faked it with aluminium and plastic. It bothered him until he died at 51 from a brain tumour. Knoll has made it continuously since 1957. Nobody's improved on it.\n\nFull story in the slides.`,
+tg:"#tuliptable #eerosaarinen #knoll #designicon #pedestaltable #midcenturymodern #moderndesign #iconicfurniture #interiordesigninspo #designhistory #diningroom #furnituredesign #casaaltbau #designeducation #interiordesign"},
 {d:"Wed",t:"No visual anchor",p:"Compositional stability",f:"Reel",h:"If your room feels unsettled, it's missing an anchor.",
 sc:`If your room feels unsettled, it's missing an anchor.
 
@@ -707,19 +707,19 @@ dn:`"Where did you find that?" is the compliment collected rooms earn. Catalog r
 br:`"Catalog" corner (everything matching)\nYour mixed space (different eras, brands)\nVintage next to modern close-up\nYou holding a piece with a story`,
 ca:`A room from one store is a room with one story.\n\nMix eras. Mix price points. The most interesting rooms are gathered over time.`,
 tg:"#casaaltbau #quietdesign #intentionalhome #interiordesignprinciples #collectedhome #interiordesign"},
-{d:"Tue",t:"Saarinen Tulip Table (1956)",p:"Base simplification, circulation freedom",f:"Carousel",h:"Tulip Table, 1956. It solved the ugliest problem in dining rooms.",
-sc:`SLIDE 1: Tulip Table, 1956. It solved the ugliest problem in dining rooms.
-SLIDE 2: [Hero — single pedestal base]
-SLIDE 3: Saarinen hated the "slum of legs" under tables. His words. Not mine. (But I agree entirely.)
-SLIDE 4: PRINCIPLE — Base simplification. One leg instead of four. Clean floor.
-SLIDE 5: PRINCIPLE — Circulation freedom. No corner legs to bump. Chairs tuck completely. Getting up doesn't require a strategy.
-SLIDE 6: 70 years later, still the cleanest solution anyone has come up with.
-SLIDE 7: [Dining room, chairs tucked, clean floor visible]
-SLIDE 8: TAKEAWAY — The biggest breakthroughs remove the most obvious element.`,
-dn:`"Getting up doesn't require a strategy" — anyone who's bumped a table leg getting out of a chair feels this.`,
-br:`Single pedestal base detail\nClean floor beneath the table\nChairs tucked in completely\nThe table from above showing circulation space`,
-ca:`Saarinen saw chaos under dining tables. His solution: one pedestal. Clean floor. Clear movement.\n\nSubtraction is innovation.`,
-tg:"#casaaltbau #quietdesign #intentionalhome #designthinking #apartmentdesign #homedecor"},
+{d:"Tue",t:"Maralunga (1973)",p:"Bicycle chain headrest, Compasso d'Oro",f:"Carousel",h:"The sofa that got punched into existence.",
+sc:`SLIDE 1: DESIGN ICON 12. Maralunga, 1973. STILL ICONIC. The sofa that got punched into existence.
+SLIDE 2: [Full photo. Maralunga in a real living room.]
+SLIDE 3: Headrest fold detail. The owner of Cassina hated the prototype so much he punched it. Cesare Cassina saw the first model and was so disgusted he broke the backrest with his fist. It crumpled over itself. Magistretti looked at it and said, "Right, great, it looks perfect to me like that." That broken shape became the design.
+SLIDE 4: There's a bicycle chain hidden inside. The headrest raises and lowers with a single finger. Underneath the foam is a bicycle chain mechanism that locks it in place. Two positions, two different sofas. Nobody sees the engineering. Everybody feels it.
+SLIDE 5: It started as a sketch on a napkin. Magistretti sent Cassina a simple drawing of a cushion that could fold. No technical specs, no measurements. Just the idea of a backrest that moves. Cassina's engineers figured out how to make it real. [Low-back profile view]
+SLIDE 6: Third-generation architect. First-generation rebel. His father and grandfather were both architects. He studied at Milan Polytechnic and came out believing there's no excuse for bad design. The Maralunga was his way of saying a sofa should actually change shape when you need it to. [High-back profile view]
+SLIDE 7: Compasso d'Oro. MoMA. Still in production. Won Italy's top design prize in 1979. Entered MoMA's permanent collection. Cassina reissued it in 2014 with updated seams but the same bicycle chain. Over 50 years and they've never needed to redesign it. [Leather texture close-up]
+SLIDE 8: [Full photo. Maralunga in a lived-in room, someone actually on it.]`,
+dn:`8-slide Instagram carousel, 1080x1350px.\nPost to Instagram and TikTok simultaneously.\nSlides use Casa Altbau brand design system:\nBackground: Dark Wine #3D1C24\nHeadlines: Linen White #F2EDE6\nLabels (PRINCIPAL/FACT): Olive Gold #B5A33A\nBody text: Warm Taupe #9B8A85\nCA mark: Dusty Rose #D4918E\nFonts: DM Serif Display (headlines), DM Sans (body)`,
+br:`Headrest fold detail\nLow-back profile view\nHigh-back profile view\nLeather texture close-up\nLived-in room with person on it`,
+ca:`Cesare Cassina saw the first prototype of this sofa and punched it. Broke the backrest. Magistretti looked at the crumpled shape and said "perfect." There's a bicycle chain hidden inside the cushions that lets you raise or lower the headrest with one finger. Won the Compasso d'Oro. In MoMA. Still in production after 50 years with the same mechanism.\n\nFull story in the slides.`,
+tg:"#maralunga #vicomagistretti #cassina #designicon #italiandesign #sofadesign #moderndesign #iconicfurniture #interiordesigninspo #designhistory #livingroom #furnituredesign #casaaltbau #designeducation #interiordesign"},
 {d:"Wed",t:"Cold lighting in warm rooms",p:"Temperature alignment",f:"Reel",h:"Your room isn't cold. Your lighting is.",
 sc:`Your room isn't cold. Your lighting is.
 
@@ -769,19 +769,19 @@ dn:`"Turned its back on you. Rude, honestly." — deadpan personification. The s
 br:`POV from doorway of each room\nBack of a sofa (the wrong sightline)\nBeautiful sightline to art, window, or lamp\nYou in doorway assessing (designer squint)`,
 ca:`The doorway is the opening scene. What the eye meets first sets everything.\n\nDesign the sequence. First: draws you in. Second: grounds you. Third: rewards a closer look.`,
 tg:"#casaaltbau #quietdesign #intentionalhome #interiordesignprinciples #designthinking #interiordesign"},
-{d:"Tue",t:"Serge Mouille Lamp (1953)",p:"Directional lighting",f:"Carousel",h:"These lamps don't light a room. They sculpt it.",
-sc:`SLIDE 1: Serge Mouille, 1953. These lamps don't light a room. They sculpt it.
-SLIDE 2: [Hero — the arm extending like a gesture]
-SLIDE 3: Mouille was a silversmith. He shaped each arm by hand, directing light like a sculptor directing attention.
-SLIDE 4: PRINCIPLE — Directional lighting. Light with intention. It points somewhere. It has an opinion.
-SLIDE 5: PRINCIPLE — Sculptural presence. Art even when it's off. Very unfair standard for a lamp.
-SLIDE 6: Each piece casts pools and shadows that carve dimension into walls. The room changes shape with the light.
-SLIDE 7: [Living room with pools of light and deliberate shadow]
-SLIDE 8: TAKEAWAY — Light isn't just visibility. It's composition.`,
-dn:`"It has an opinion" — the lamp has a point of view. Literally. Let the personification do the work.`,
-br:`Arm extending detail\nPools of light on walls\nShadow patterns\nThe lamp off vs on (sculpture vs light source)`,
-ca:`Mouille was a silversmith who made lamps the way a sculptor shapes form.\n\nPools of warmth and deliberate shadow. Rooms get sculpted, not just illuminated.`,
-tg:"#casaaltbau #quietdesign #intentionalhome #designthinking #apartmentdesign #homedecor"},
+{d:"Tue",t:"Stool 60 (1933)",p:"L-leg bent birch, stackable, multi-use",f:"Carousel",h:"Three legs. One bend. The most copied piece of furniture in history.",
+sc:`SLIDE 1: DESIGN ICON 13. Stool 60, 1933. STILL ICONIC. Three legs. One bend. The most copied piece of furniture in history.
+SLIDE 2: [Full photo. Stool 60 in a real interior.]
+SLIDE 3: L-leg bend detail. Everyone else was bending steel. Aalto bent a tree. While Breuer and Mies were building furniture from chrome tubes, Aalto wanted something warm. He and a Finnish carpenter figured out how to saw slots into birch and glue veneer strips into the grooves until the wood bent without breaking. That one invention launched everything.
+SLIDE 4: He tested the prototype by throwing it at the floor. Repeatedly. Aalto wanted to know if the legs would snap. They didn't. The L-leg patent was granted in 1933 and the stool has been in continuous production ever since. Over 90 years. Same factory in Turku.
+SLIDE 5: Three parts. 45 production steps. 25 just for the leg. A round birch seat and three bent legs. No screws, no joints, no hardware visible. Each leg attaches directly to the underside of the seat. It flat-packs, it stacks into a spiralling tower, and it ships anywhere. [Stacked stools, spiral view]
+SLIDE 6: It's a stool. It's a table. It's whatever you need. Seat, side table, nightstand, display surface, step stool. Aalto designed it with no fixed purpose. Artek calls it "the most elemental of furniture pieces." He'd agree. [Stool used as side table]
+SLIDE 7: Apple uses them in every store on earth. Stool E60, the four-legged version, is the seating in every Apple Store worldwide. IKEA copied the three-legged version so closely with the Frosta that it was quietly pulled from their catalogue. The original is still in Turku. [Birch grain close-up]
+SLIDE 8: [Full photo. Stool 60 in a lived-in home.]`,
+dn:`8-slide Instagram carousel, 1080x1350px.\nPost to Instagram and TikTok simultaneously.\nSlides use Casa Altbau brand design system:\nBackground: Dark Wine #3D1C24\nHeadlines: Linen White #F2EDE6\nLabels (PRINCIPAL/FACT): Olive Gold #B5A33A\nBody text: Warm Taupe #9B8A85\nCA mark: Dusty Rose #D4918E\nFonts: DM Serif Display (headlines), DM Sans (body)`,
+br:`L-leg bend detail\nStacked stools, spiral view\nStool used as side table\nBirch grain close-up\nLived-in home context`,
+ca:`Everyone was bending steel. Aalto bent a birch tree. Three legs, a round seat, no hardware. He tested the prototype by throwing it at the floor until he was sure the legs wouldn't snap. 90 years later, same factory in Finland, same design. Apple puts them in every store. IKEA copied them so closely they had to stop.\n\nFull story in the slides.`,
+tg:"#stool60 #alvaraalto #artek #designicon #finnishdesign #scandinaviandesign #bentwood #iconicfurniture #interiordesigninspo #designhistory #minimalistdesign #furnituredesign #casaaltbau #designeducation #interiordesign"},
 {d:"Wed",t:"Overusing symmetry",p:"Dynamic balance vs rigidity",f:"Reel",h:"Your room isn't boring. It's too symmetrical.",
 sc:`Your room isn't boring. It's too symmetrical.
 
@@ -832,19 +832,19 @@ dn:`"Builder-grade flush mount" — said with gentle disdain. Not at the owner. 
 br:`Camera tilting up to boring fixture\nBeautiful pendant or sculptural light\nPendant from below (looking up)\nRoom feeling complete with the right fixture`,
 ca:`The ceiling is half the room. Most people treat it like it doesn't exist.\n\nSwap the flush mount for something with presence. The fifth wall deserves attention.`,
 tg:"#casaaltbau #quietdesign #intentionalhome #interiordesignprinciples #collectedhome #interiordesign"},
-{d:"Tue",t:"Camaleonda Sofa (1970)",p:"Modular flexibility",f:"Carousel",h:"Camaleonda wasn't designed. It was left open.",
-sc:`SLIDE 1: Camaleonda, 1970. It wasn't designed. It was left open.
-SLIDE 2: [Hero — modules, tufting, softness]
-SLIDE 3: Bellini created interlocking modules. No fixed shape. The sofa adapts to whoever sinks into it.
-SLIDE 4: PRINCIPLE — Modular flexibility. The design has no final form.
-SLIDE 5: PRINCIPLE — User completion. The owner decides what it becomes. The most generous thing a designer can offer.
-SLIDE 6: It anticipated how we live now: fluid, reconfigurable. Bellini was either a genius or a time traveler.
-SLIDE 7: [Living room — modules arranged casually, lived-in]
-SLIDE 8: TAKEAWAY — The most generous designs leave room for the user to finish them.`,
-dn:`"Genius or a time traveler" — light, affectionate. Not hyperbole. Just appreciation.`,
-br:`Module connection detail\nDifferent configurations\nSomeone rearranging modules\nThe sofa in a real living room`,
-ca:`Bellini designed a system, not a sofa. Interlocking modules with no fixed arrangement.\n\nCamaleonda anticipated how we live: fluid, never settled. The best designs adapt.`,
-tg:"#casaaltbau #quietdesign #intentionalhome #designthinking #apartmentdesign #homedecor"},
+{d:"Tue",t:"Panthella (1971)",p:"Reflective base, opal acrylic diffusion",f:"Carousel",h:"A mushroom that lights a room. No bulb visible. No glare. Just glow.",
+sc:`SLIDE 1: DESIGN ICON 14. Panthella, 1971. STILL ICONIC. A mushroom that lights a room. No bulb visible. No glare. Just glow.
+SLIDE 2: [Full photo. Panthella lamp glowing in a real interior.]
+SLIDE 3: Shade curve meeting the base. Panton was called the most un-Danish Danish designer alive. His contemporaries made quiet, minimal things. He made a plastic S-shaped chair, rooms in solid colour, and a mushroom lamp that glows from every surface. He thought most people lived in "dreary, grey-beige conformity." The Panthella was his fix.
+SLIDE 4: He wanted the original in metal. The technology wasn't ready. Panton designed the shade and base to both reflect light. Metal would have done it best, but manufacturing couldn't deliver in 1971. So he used opal acrylic instead. The metal version finally came out decades later, after his death.
+SLIDE 5: The base isn't just a stand. It's a reflector. Light hits the inside of the hemispherical shade, bounces down to the trumpet-shaped base, and reflects outward. No glare from any angle. The whole lamp is the light source. Panton learned that from Poul Henningsen, his mentor. [Lamp from below, glow detail]
+SLIDE 6: One line. No interruptions. From shade to base, the profile is a single unbroken curve. No joints, no seams, no visible hardware. Panton trained as an architect and studied sculpture. Every lamp he made was a building in miniature. [Side profile silhouette]
+SLIDE 7: He worked for Arne Jacobsen. Then did the opposite of everything Jacobsen stood for. Two years in Jacobsen's office after graduating. Then he left and spent his career in colour, plastic, and provocation. Jacobsen made the Egg Chair. Panton made a room you could live inside like one. [Lamp in colour, warm glow]
+SLIDE 8: [Full photo. Panthella in a lived-in bedroom or living room.]`,
+dn:`8-slide Instagram carousel, 1080x1350px.\nPost to Instagram and TikTok simultaneously.\nSlides use Casa Altbau brand design system:\nBackground: Dark Wine #3D1C24\nHeadlines: Linen White #F2EDE6\nLabels (PRINCIPAL/FACT): Olive Gold #B5A33A\nBody text: Warm Taupe #9B8A85\nCA mark: Dusty Rose #D4918E\nFonts: DM Serif Display (headlines), DM Sans (body)`,
+br:`Shade curve meeting the base\nLamp from below, glow detail\nSide profile silhouette\nLamp in colour, warm glow\nBedroom or living room context`,
+ca:`Verner Panton thought most people were afraid of colour. So he designed a mushroom lamp where the shade and the base both reflect light, no glare from any angle. He wanted it in metal but the technology wasn't ready in 1971. He studied under Arne Jacobsen and then spent his whole career doing the opposite. The Panthella is still Louis Poulsen's most recognisable lamp after the Artichoke.\n\nFull story in the slides.`,
+tg:"#panthella #vernerpanton #louispoulsen #designicon #danishdesign #lightingdesign #scandinaviandesign #iconicdesign #interiordesigninspo #designhistory #tablelamp #casaaltbau #designeducation #interiordesign"},
 {d:"Wed",t:"Underscaled art",p:"Scale anchoring",f:"Reel",h:"That art isn't small because of the frame. It's small because of the wall.",
 sc:`That art isn't small because of the frame. It's small because of the wall.
 
@@ -894,19 +894,19 @@ dn:`"On a Tuesday. With free shipping." — devastating specificity. Everyone ha
 br:`Vintage piece close-up (patina, wear, character)\nThat piece next to something new\nFlea market footage if available\nHands examining a vintage object`,
 ca:`New is clean. New-only is sterile.\n\nA vintage piece creates temporal contrast — warmth, story, and depth that can't be bought new. Let your room have layers of time.`,
 tg:"#casaaltbau #quietdesign #intentionalhome #interiordesignprinciples #collectedhome #interiordesign"},
-{d:"Tue",t:"LC4 Chaise (1928)",p:"Ergonomic expression",f:"Carousel",h:"The LC4 doesn't ask you to sit. It asks you to reconsider sitting.",
-sc:`SLIDE 1: LC4 Chaise, 1928. It doesn't ask you to sit. It asks you to reconsider sitting.
-SLIDE 2: [Hero — the reclined curve, chrome frame]
-SLIDE 3: Le Corbusier, Perriand, and Jeanneret created a frame that cradles the body at any angle. Adjustable without mechanics.
-SLIDE 4: PRINCIPLE — Ergonomic expression. The shape follows the resting body, not chair convention.
-SLIDE 5: PRINCIPLE — Gravity adjustment. Slide forward to recline. Back to sit up. No levers. Just physics and trust.
-SLIDE 6: Nearly 100 years old. Still the most intuitive way to recline. Everything since has been an overcomplication.
-SLIDE 7: [In context — living room or reading corner]
-SLIDE 8: TAKEAWAY — Design for the body, not for the idea of furniture.`,
-dn:`"Physics and trust" — beautiful pairing. Let it breathe. "Everything since: overcomplication" — said with quiet certainty.`,
-br:`Reclined curve detail\nChrome frame close-up\nSomeone adjusting position by shifting weight\nThe chaise in a real room`,
-ca:`They didn't design a chair. They designed a resting position.\n\nThe LC4 adjusts by gravity alone. No mechanics. Just physics and understanding of how the body rests.`,
-tg:"#casaaltbau #quietdesign #intentionalhome #designthinking #apartmentdesign #homedecor"},
+{d:"Tue",t:"Hang-It-All (1953)",p:"Maple balls, welded wire frame, Eames colour theory",f:"Carousel",h:"A coat rack for kids. Now in MoMA.",
+sc:`SLIDE 1: DESIGN ICON 15. Hang-It-All, 1953. STILL ICONIC. A coat rack for kids. Now in MoMA.
+SLIDE 2: [Full photo. Hang-It-All on a wall in a real home.]
+SLIDE 3: Coloured ball and wire joint. Ray Eames never gave up painting. She just changed her palette. She was an abstract painter before she was a designer. The Hang-It-All was her colour theory on a wall. Fourteen maple balls in different sizes on a welded wire frame. Charles built the structure. Ray made it art.
+SLIDE 4: It was designed to get children to hang up their stuff. Originally sold through a toy company called Tigrett alongside the Eames House of Cards and a colouring toy. The brief was: make kids want to use a coat rack. The solution was: make it look like a game.
+SLIDE 5: The balls aren't decoration. They protect your clothes. A normal hook rips linen coats and stretches sweaters. Rounded wooden balls don't. The playfulness people love is actually the function. Every ball is a hook that does less damage. [Close-up of ball hooks with items hanging]
+SLIDE 6: They built it with the same technique as their chairs. The welded steel wire frame uses the same process they developed for the Eames wire chairs and table bases. They had a plywood moulding machine they nicknamed "Kazam" after the magician's phrase. Everything they made came from the same workshop logic. [Wire frame structure detail]
+SLIDE 7: The Eameses had no children together. It hung in their house anyway. You can see it in photos of their home in Pacific Palisades. Designed for kids, used by adults, collected by museums. Herman Miller stopped making it for decades. Brought it back in 1994. Hasn't stopped since. [Hang-It-All in context, entryway]
+SLIDE 8: [Full photo. Hang-It-All in a lived-in hallway or kids' room.]`,
+dn:`8-slide Instagram carousel, 1080x1350px.\nPost to Instagram and TikTok simultaneously.\nSlides use Casa Altbau brand design system:\nBackground: Dark Wine #3D1C24\nHeadlines: Linen White #F2EDE6\nLabels (PRINCIPAL/FACT): Olive Gold #B5A33A\nBody text: Warm Taupe #9B8A85\nCA mark: Dusty Rose #D4918E\nFonts: DM Serif Display (headlines), DM Sans (body)`,
+br:`Coloured ball and wire joint\nClose-up of ball hooks with items hanging\nWire frame structure detail\nHang-It-All in context, entryway\nLived-in hallway or kids' room`,
+ca:`Ray Eames was a painter before she was a designer. The Hang-It-All was her colour theory on a coat rack. Fourteen wooden balls on a wire frame, designed to make kids actually hang up their stuff. The balls aren't decorative. They're round so they don't rip your clothes. The Eameses had no children together but it hung in their house anyway. Stopped production for years. Came back in 1994. Now it's in MoMA.\n\nFull story in the slides.`,
+tg:"#hangitall #eames #charlesandrayeames #hermanmiller #vitra #designicon #midcenturymodern #coatrack #iconicdesign #interiordesigninspo #designhistory #kidsdesign #casaaltbau #designeducation #interiordesign"},
 {d:"Wed",t:"Misaligned furniture",p:"Axis logic",f:"Carousel",h:"Something feels off but you can't name it. It's alignment.",
 sc:`SLIDE 1: Something feels off but you can't name it. It's alignment.
 SLIDE 2: [Furniture slightly off-axis — the sofa 3 degrees from the wall]
@@ -958,19 +958,19 @@ dn:`"The better half" — cheeky. You're team shadow. Deliver like a confession.
 br:`Room fully lit: flat, institutional\nSame room: selective lighting, shadow\nLamp casting a pool, shadow around it\nShadow on wall, corner, surface\nContrast between lit and unlit`,
 ca:`Even lighting is comfortable. Also flat.\n\nShadow creates dimension, mood, hierarchy. Light is only meaningful when shadow defines it.`,
 tg:"#casaaltbau #quietdesign #intentionalhome #interiordesignprinciples #collectedhome #interiordesign"},
-{d:"Tue",t:"Atollo Lamp (1977)",p:"Geometric balance",f:"Carousel",h:"Atollo, 1977. Proof that geometry can feel warm.",
-sc:`SLIDE 1: Atollo, 1977. Proof that geometry can feel warm.
-SLIDE 2: [Hero — three shapes stacked, that glow]
-SLIDE 3: Magistretti stacked a cone, a cylinder, and a hemisphere. No decoration. Just proportion doing all the emotional work.
-SLIDE 4: PRINCIPLE — Geometric balance. Three pure forms, one harmonious silhouette. Math that feels like candlelight.
-SLIDE 5: PRINCIPLE — Warmth through shape. The dome diffuses light downward. The cone disappears into glow.
-SLIDE 6: Looks like a mathematical exercise but behaves like a candle. Magistretti proved geometry has feelings. (Mathematicians may disagree.)
-SLIDE 7: [Nightstand, console, or reading corner. Glowing]
-SLIDE 8: TAKEAWAY — Geometry doesn't have to be cold. Just needs the right proportions.`,
-dn:`"Mathematicians may disagree" — parenthetical humor. Quick, under the breath.`,
-br:`Three shapes detail\nThe glow in a dark room\nCone-cylinder-hemisphere breakdown\nThe lamp at dusk, atmospheric`,
-ca:`A cone, a cylinder, a hemisphere. Three shapes stacked into one of the warmest lamps ever made.\n\nMagistretti proved precision and warmth aren't opposites.`,
-tg:"#casaaltbau #quietdesign #intentionalhome #designthinking #apartmentdesign #homedecor"},
+{d:"Tue",t:"Panton Chair (1967)",p:"Single-piece polypropylene, cantilever S-curve",f:"Carousel",h:"The first chair made from a single piece of plastic. It took a decade to build.",
+sc:`SLIDE 1: DESIGN ICON 16. Panton Chair, 1967. STILL ICONIC. The first chair made from a single piece of plastic. It took a decade to build.
+SLIDE 2: [Full photo. Panton Chair in a real interior.]
+SLIDE 3: S-curve profile detail. Fifteen manufacturers said no. One said let's try. Panton shopped the idea around for years. Everyone rejected it. A famous American designer said it shouldn't even be called a chair. Vitra's founder saw the prototype, couldn't sit in it, and agreed to make it anyway. They spent five years and ten prototypes getting it right.
+SLIDE 4: He got the idea from a stack of plastic buckets. Panton saw buckets nested together and thought: a chair should do that. No legs, no joints, no assembly. One continuous S-curve that stacks. He'd been sketching it since 1956. It took eleven years to find the material.
+SLIDE 5: It kept breaking. They kept remaking it. The first 150 were fibreglass. Too expensive. The next version was polyurethane foam. Then polystyrene, which cracked over time. Production stopped in 1979. They tried again in the 90s with polypropylene. That one finally held. Four materials, four decades. [Chair from behind, curve detail]
+SLIDE 6: No legs. No frame. Just one shape. The seat, back, and base are one unbroken piece. It's cantilevered, which means it floats forward without rear legs. The S-curve isn't decorative. It's structural. Without it the chair collapses. [Stacked Panton Chairs]
+SLIDE 7: It made the cover of Vogue. In 1995, British Vogue put it on the cover. In 1970, Nova magazine used it for a feature called "How to undress in front of your husband." It's in MoMA, the Vitra Design Museum, and the Danish Culture Canon. A plastic chair in the national canon. [Chair in bold colour, styled interior]
+SLIDE 8: [Full photo. Panton Chair in a lived-in room.]`,
+dn:`8-slide Instagram carousel, 1080x1350px.\nPost to Instagram and TikTok simultaneously.\nSlides use Casa Altbau brand design system:\nBackground: Dark Wine #3D1C24\nHeadlines: Linen White #F2EDE6\nLabels (PRINCIPAL/FACT): Olive Gold #B5A33A\nBody text: Warm Taupe #9B8A85\nCA mark: Dusty Rose #D4918E\nFonts: DM Serif Display (headlines), DM Sans (body)`,
+br:`S-curve profile detail\nChair from behind, curve detail\nStacked Panton Chairs\nChair in bold colour, styled interior\nLived-in room context`,
+ca:`Fifteen manufacturers said no. It kept breaking in new materials. Production stopped for four years. They remade it four times in four decades. And it still ended up on the cover of Vogue, in MoMA, and in the Danish national culture canon. Verner Panton saw a stack of plastic buckets and thought: that's a chair. It took eleven years to prove him right.\n\nFull story in the slides.`,
+tg:"#pantonchair #vernerpanton #vitra #designicon #plasticchair #danishdesign #iconicdesign #midcenturymodern #interiordesigninspo #designhistory #popdesign #furnituredesign #casaaltbau #designeducation #interiordesign"},
 {d:"Wed",t:"Flat lighting everywhere",p:"Depth creation",f:"Reel",h:"Your room doesn't lack furniture. It lacks shadow.",
 sc:`Your room doesn't lack furniture. It lacks shadow.
 
