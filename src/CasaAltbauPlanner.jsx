@@ -1184,7 +1184,7 @@ export default function P() {
   const [wk, setWk] = useState(0);
   const [vw, setVw] = useState("week");
   const [ap, setAp] = useState(null);
-  const [sts, setSts] = useState({});
+  const [sts, setSts] = useState(() => { try { return JSON.parse(localStorage.getItem("ca-sts") || "{}"); } catch { return {}; } });
   const [modalItem, setModalItem] = useState(null);
   const [edits, setEdits] = useState({});
   const [allData, setAllData] = useState(() => D.map(w => w.map(i => ({ ...i }))));
@@ -1194,6 +1194,8 @@ export default function P() {
   const wi = mo * 4 + wk;
   const data = allData[wi];
   const tw = wi + 1;
+  useEffect(() => { localStorage.setItem("ca-sts", JSON.stringify(sts)); }, [sts]);
+
   const stC = { Idea: "#f0c040", Drafting: "#60aaff", Ready: "#d070ff", Posted: "#4cdd80" };
   const sk = (d) => `${wi}-${d}`;
 
