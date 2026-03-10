@@ -1020,15 +1020,22 @@ export default function P() {
                     e.currentTarget.style.background = match ? T.cardAlt : T.cardDark;
                   }}
                 >
-                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "2px" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2px" }}>
                     <span style={{
                       fontSize: "0.56rem", color: SC[d], letterSpacing: "1px",
                       textTransform: "uppercase", opacity: 0.8
-                    }}>{(mobile || tablet) ? `${DY_FULL[d]} · ` : ""}{getEdited(item, "f")}{st ? ` · ${st}` : ""}</span>
-                    <div style={{
-                      width: "4px", height: "4px", borderRadius: "50%",
-                      background: st ? (stC[st] || T.readyDot) : T.readyDot,
-                    }} />
+                    }}>{(mobile || tablet) ? `${DY_FULL[d]} · ` : ""}{getEdited(item, "f")}</span>
+                    {st ? (
+                      <span style={{
+                        fontSize: "0.5rem", color: stC[st], letterSpacing: "1px",
+                        textTransform: "uppercase", fontWeight: 600,
+                        background: stC[st] + "18", padding: "1px 6px", borderRadius: "2px",
+                      }}>{st}</span>
+                    ) : (
+                      <div style={{
+                        width: "4px", height: "4px", borderRadius: "50%", background: T.textFaint,
+                      }} />
+                    )}
                   </div>
                   <div style={{
                     fontSize: "0.68rem", color: T.text, lineHeight: 1.4, marginBottom: "2px"
@@ -1143,14 +1150,22 @@ export default function P() {
                         onMouseEnter={(e) => { if (match) e.currentTarget.style.borderColor = T.borderMid; }}
                         onMouseLeave={(e) => { e.currentTarget.style.borderColor = match ? T.borderLight : T.borderDark; }}
                       >
-                        <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "2px" }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2px" }}>
                           <span style={{
                             fontSize: "0.56rem", color: SC[d], letterSpacing: "1px",
                             textTransform: "uppercase", opacity: 0.8
                           }}>{mobile ? `${DY_FULL[d]} · ` : ""}{edits[`${gi}-${d}`]?.f ?? item.f}</span>
-                          <div style={{
-                            width: "4px", height: "4px", borderRadius: "50%", background: T.readyDot
-                          }} />
+                          {(() => { const ovSt = sts[`${gi}-${d}`]; return ovSt ? (
+                            <span style={{
+                              fontSize: "0.46rem", color: stC[ovSt], letterSpacing: "1px",
+                              textTransform: "uppercase", fontWeight: 600,
+                              background: stC[ovSt] + "18", padding: "1px 4px", borderRadius: "2px",
+                            }}>{ovSt}</span>
+                          ) : (
+                            <div style={{
+                              width: "3px", height: "3px", borderRadius: "50%", background: T.textFaint,
+                            }} />
+                          ); })()}
                         </div>
                         <div style={{
                           fontSize: "0.68rem", color: T.text, lineHeight: 1.4, marginBottom: "2px"
