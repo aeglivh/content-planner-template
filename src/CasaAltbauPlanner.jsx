@@ -4,7 +4,7 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 const DEFAULT_BRAND = {
   name: "Your Brand",
   subtitle: "Content Planner · Reels + Carousels",
-  months: ["Month 1", "Month 2", "Month 3", "Month 4"],
+  months: ["Month 1", "Month 2", "Month 3", "Month 4", "Month 5", "Month 6", "Month 7", "Month 8", "Month 9", "Month 10", "Month 11", "Month 12"],
   daySeries: { Mon: "Monday Series", Tue: "Tuesday Series", Wed: "Wednesday Series", Thu: "Thursday Series", Fri: "Friday Series" },
   dayColors: { Mon: "#f0c040", Tue: "#60aaff", Wed: "#ff6b6b", Thu: "#4cdd80", Fri: "#d070ff" },
   pillars: { Mon: "Pillar 1", Tue: "Pillar 2", Wed: "Pillar 3", Thu: "Pillar 4", Fri: "Pillar 5" },
@@ -19,7 +19,7 @@ const BLANK_WEEK = () => DY.map(d => EMPTY(d));
 /* ─── Build initial data: Mon W1 has example, everything else blank ─── */
 const buildInitialData = () => {
   const weeks = [];
-  for (let i = 0; i < 16; i++) weeks.push(BLANK_WEEK());
+  for (let i = 0; i < 48; i++) weeks.push(BLANK_WEEK());
   // Week 1 Monday: example content
   weeks[0][0] = {d:"Mon",t:"Example: Your Monday Topic",p:"Principle or angle for this piece",f:"Reel",h:"Hook line that grabs attention in 0-2 seconds.",
   sc:"Write your full script here.\nBreak into sections as needed.\nInclude visual directions and dialogue.",
@@ -367,7 +367,7 @@ export default function P() {
   const [allData, setAllData] = useState(() => {
     try {
       const saved = JSON.parse(localStorage.getItem("cp-data"));
-      if (saved && saved.length === 16) return saved;
+      if (saved && saved.length === 48) return saved;
     } catch {}
     return buildInitialData();
   });
@@ -595,7 +595,7 @@ export default function P() {
         ))}
         <span style={{
           fontSize: "0.66rem", color: "#666", marginLeft: "6px", letterSpacing: "1px"
-        }}>WEEK {tw} / 16</span>
+        }}>WEEK {tw} / 48</span>
       </div>
 
       {/* WEEK VIEW */}
