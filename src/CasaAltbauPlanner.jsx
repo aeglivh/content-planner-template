@@ -502,6 +502,40 @@ export default function P() {
     });
   }, []);
 
+  /* ─── Export / Import ─── */
+  const exportData = useCallback(() => {
+    const backup = { brand, sts, edits, allData, exportedAt: new Date().toISOString() };
+    const blob = new Blob([JSON.stringify(backup, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `content-planner-backup-${new Date().toISOString().slice(0,10)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }, [brand, sts, edits, allData]);
+
+  const importData = useCallback(() => {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = ".json";
+    input.onchange = (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        try {
+          const data = JSON.parse(ev.target.result);
+          if (data.brand) setBrand({ ...DEFAULT_BRAND, ...data.brand });
+          if (data.sts) setSts(data.sts);
+          if (data.edits) setEdits(data.edits);
+          if (data.allData && data.allData.length === 48) setAllData(data.allData);
+        } catch { alert("Invalid backup file."); }
+      };
+      reader.readAsText(file);
+    };
+    input.click();
+  }, []);
+
   /* ─── Button base ─── */
   const bs = {
     borderRadius: "3px", fontSize: "0.72rem", cursor: "pointer",
@@ -546,6 +580,16 @@ export default function P() {
           }} onMouseEnter={e => { e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#555"; }}
              onMouseLeave={e => { e.currentTarget.style.color = "#888"; e.currentTarget.style.borderColor = "#333"; }}
           >Settings</button>
+          <button onClick={exportData} style={{
+            ...bs, background: "#1a1a1a", color: "#888", borderColor: "#333",
+          }} onMouseEnter={e => { e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#555"; }}
+             onMouseLeave={e => { e.currentTarget.style.color = "#888"; e.currentTarget.style.borderColor = "#333"; }}
+          >Export</button>
+          <button onClick={importData} style={{
+            ...bs, background: "#1a1a1a", color: "#888", borderColor: "#333",
+          }} onMouseEnter={e => { e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#555"; }}
+             onMouseLeave={e => { e.currentTarget.style.color = "#888"; e.currentTarget.style.borderColor = "#333"; }}
+          >Import</button>
           {["week", "overview"].map((v) => (
             <button key={v} onClick={() => { setVw(v); setAp(null); }} style={{
               ...bs,
