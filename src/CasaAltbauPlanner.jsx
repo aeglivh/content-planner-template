@@ -1,5 +1,24 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 
+/* ─── Version & Changelog ─── */
+const APP_VERSION = "1.1.0";
+const CHANGELOG = [
+  { version: "1.1.0", date: "2026-03-10", changes: [
+    "12-month calendar (48 weeks)",
+    "Export and Import backup files",
+    "Customizable brand settings (name, colors, pillars, series)",
+    "Format selector (Reel / Carousel) per content piece",
+    "Status, month, and week selections persist across refreshes",
+    "Full-viewport grid layout",
+  ]},
+  { version: "1.0.0", date: "2026-03-02", changes: [
+    "Initial release: 5-day content planner with drag-and-drop",
+    "Brief modal with editable fields (script, hook, captions, tags)",
+    "Week and overview views",
+    "Pillar-based filtering",
+  ]},
+];
+
 /* ─── Default Brand Settings ─── */
 const DEFAULT_BRAND = {
   name: "Your Brand",
@@ -350,6 +369,71 @@ function BriefModal({ item, mo, tw, onClose, edits, onEdit, brand }) {
   );
 }
 
+/* ─── What's New Modal ─── */
+function WhatsNewModal({ onClose }) {
+  useEffect(() => {
+    const handleKey = (e) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [onClose]);
+
+  const lastSeen = localStorage.getItem("cp-version") || "0.0.0";
+  const newEntries = CHANGELOG.filter(e => e.version > lastSeen);
+
+  return (
+    <div onClick={onClose} style={{
+      position: "fixed", inset: 0, zIndex: 9999,
+      background: "rgba(0,0,0,0.82)", backdropFilter: "blur(12px)",
+      display: "flex", justifyContent: "center", alignItems: "flex-start",
+      padding: "32px 16px", overflowY: "auto",
+    }}>
+      <div onClick={(e) => e.stopPropagation()} style={{
+        background: "#131313", border: "1px solid #252525",
+        borderRadius: "6px", maxWidth: "480px", width: "100%",
+        padding: "36px 32px", position: "relative",
+        color: "#d0d0d0", fontFamily: "'Inter', sans-serif",
+        boxShadow: "0 24px 80px rgba(0,0,0,0.6)",
+      }}>
+        <h2 style={{
+          fontSize: "1rem", fontWeight: 600, letterSpacing: "3px",
+          textTransform: "uppercase", color: "#fff", margin: "0 0 6px"
+        }}>What's New</h2>
+        <p style={{ fontSize: "0.68rem", color: "#666", letterSpacing: "1px", margin: "0 0 24px" }}>
+          v{APP_VERSION}
+        </p>
+
+        {(newEntries.length > 0 ? newEntries : CHANGELOG.slice(0, 1)).map((entry) => (
+          <div key={entry.version} style={{ marginBottom: "20px" }}>
+            <div style={{
+              fontSize: "0.72rem", color: "#999", letterSpacing: "2px",
+              textTransform: "uppercase", marginBottom: "8px",
+              paddingBottom: "6px", borderBottom: "1px solid #252525",
+            }}>v{entry.version} · {entry.date}</div>
+            <ul style={{ margin: 0, paddingLeft: "16px" }}>
+              {entry.changes.map((c, i) => (
+                <li key={i} style={{
+                  fontSize: "0.78rem", color: "#bbb", lineHeight: 1.8,
+                  listStyleType: "'·  '",
+                }}>{c}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+
+        <button onClick={() => {
+          localStorage.setItem("cp-version", APP_VERSION);
+          onClose();
+        }} style={{
+          background: "#fff", border: "1px solid #fff", color: "#000",
+          padding: "8px 24px", borderRadius: "3px", fontSize: "0.76rem",
+          fontFamily: "Inter", letterSpacing: "1px", textTransform: "uppercase",
+          cursor: "pointer", fontWeight: 600, width: "100%", marginTop: "8px",
+        }}>Got it</button>
+      </div>
+    </div>
+  );
+}
+
 /* ─── Main Planner ─── */
 export default function P() {
   const [brand, setBrand] = useState(() => {
@@ -362,6 +446,10 @@ export default function P() {
     } catch { return { ...DEFAULT_BRAND }; }
   });
   const [showSettings, setShowSettings] = useState(false);
+  const [showWhatsNew, setShowWhatsNew] = useState(() => {
+    const seen = localStorage.getItem("cp-version");
+    return seen !== APP_VERSION;
+  });
   const [mo, setMo] = useState(() => { try { return JSON.parse(localStorage.getItem("cp-mo")) || 0; } catch { return 0; } });
   const [wk, setWk] = useState(() => { try { return JSON.parse(localStorage.getItem("cp-wk")) || 0; } catch { return 0; } });
   const [vw, setVw] = useState(() => { try { return localStorage.getItem("cp-vw") || "week"; } catch { return "week"; } });
@@ -554,6 +642,11 @@ export default function P() {
       color: "#e0e0e0", padding: "20px", minHeight: "100vh",
       display: "flex", flexDirection: "column",
     }}>
+      {/* What's New Modal */}
+      {showWhatsNew && (
+        <WhatsNewModal onClose={() => setShowWhatsNew(false)} />
+      )}
+
       {/* Settings Modal */}
       {showSettings && (
         <SettingsModal brand={brand} onSave={setBrand} onClose={() => setShowSettings(false)} />
