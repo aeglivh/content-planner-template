@@ -546,7 +546,8 @@ export default function P() {
   return (
     <div style={{
       fontFamily: "'Inter',sans-serif", background: "#0f0f0f",
-      color: "#e0e0e0", padding: "20px", minHeight: "100vh"
+      color: "#e0e0e0", padding: "20px", minHeight: "100vh",
+      display: "flex", flexDirection: "column",
     }}>
       {/* Settings Modal */}
       {showSettings && (
@@ -647,7 +648,7 @@ export default function P() {
 
       {/* WEEK VIEW */}
       {vw === "week" && (
-        <>
+        <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
           {/* Legend */}
           <div style={{ display: "flex", gap: "5px", flexWrap: "wrap", marginBottom: "14px" }}>
             {DY.map((d) => {
@@ -673,7 +674,8 @@ export default function P() {
           {/* Grid */}
           <div style={{
             display: "grid", gridTemplateColumns: "repeat(5,1fr)",
-            gap: "5px", marginBottom: "20px"
+            gridTemplateRows: "auto 1fr",
+            gap: "5px", marginBottom: "12px", flex: 1,
           }}>
             {DY.map((d) => (
               <div key={d} style={{
@@ -693,7 +695,7 @@ export default function P() {
                   style={{
                     background: isOver ? "#1c1c1c" : "transparent",
                     border: isOver ? "1px dashed #555" : "1px dashed transparent",
-                    borderRadius: "3px", minHeight: "150px",
+                    borderRadius: "3px", minHeight: "200px",
                     transition: "all 0.15s",
                   }}
                 />
@@ -713,7 +715,7 @@ export default function P() {
                   style={{
                     background: isOver ? "#1e1e1e" : (match ? "#141414" : "#0d0d0d"),
                     border: isOver ? "1px dashed #666" : `1px solid ${match ? "#1f1f1f" : "#151515"}`,
-                    borderRadius: "3px", padding: "9px", minHeight: "150px",
+                    borderRadius: "3px", padding: "9px", minHeight: "200px",
                     cursor: "grab", transition: "all 0.2s", position: "relative",
                     opacity: match ? 1 : 0.25
                   }}
@@ -782,31 +784,25 @@ export default function P() {
             })}
           </div>
 
-          {/* YT Row */}
+          {/* Disclaimer */}
           <p style={{
-            fontSize: "0.66rem", color: "#666", letterSpacing: "2px",
-            textTransform: "uppercase", marginBottom: "6px", marginTop: "8px"
-          }}>YouTube (Long-Form) — This Week</p>
-          <div style={{
-            background: "#141414", border: "1px solid #1f1f1f",
-            borderRadius: "3px", padding: "10px", marginBottom: "20px", minHeight: "50px"
-          }}>
-            <div style={{ fontSize: "0.76rem", color: "#777", fontStyle: "italic" }}>
-              Plan your YouTube video here — different content, long-form
-            </div>
-          </div>
-        </>
+            fontSize: "0.6rem", color: "#555", letterSpacing: "1px",
+            marginTop: "12px", lineHeight: 1.6,
+          }}>All content is saved locally in your browser. Use Export to back up your data. Clearing browser data will erase your content unless you have a backup file.</p>
+        </div>
       )}
 
       {/* OVERVIEW */}
       {vw === "overview" && (
-        <div>
+        <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
           <p style={{
             fontSize: "0.66rem", color: "#666", letterSpacing: "2px",
             textTransform: "uppercase", marginBottom: "10px"
           }}>Month {mo + 1}: {MN[mo]} — Drag cards to rearrange</p>
           <div style={{
-            display: "grid", gridTemplateColumns: "auto repeat(5,1fr)", gap: "4px"
+            display: "grid", gridTemplateColumns: "auto repeat(5,1fr)",
+            gridTemplateRows: "auto repeat(4, 1fr)",
+            gap: "4px", flex: 1,
           }}>
             <div />
             {DY.map((d) => (
