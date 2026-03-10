@@ -1,8 +1,18 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 
 /* ─── Version & Changelog ─── */
-const APP_VERSION = "1.1.0";
+const APP_VERSION = "1.3.0";
 const CHANGELOG = [
+  { version: "1.3.0", date: "2026-03-10", changes: [
+    "Fully responsive layout for mobile, tablet, and desktop",
+    "Scrollable month and pillar tabs on small screens",
+    "Adaptive grid: 1 column on mobile, 2 on tablet, 5 on desktop",
+    "Touch-friendly modals with compact padding",
+  ]},
+  { version: "1.2.0", date: "2026-03-10", changes: [
+    "Light and dark theme toggle",
+    "Theme preference saved across sessions",
+  ]},
   { version: "1.1.0", date: "2026-03-10", changes: [
     "12-month calendar (48 weeks)",
     "Export and Import backup files",
@@ -30,6 +40,41 @@ const DEFAULT_BRAND = {
 };
 
 const DY = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+const DY_FULL = { Mon: "Monday", Tue: "Tuesday", Wed: "Wednesday", Thu: "Thursday", Fri: "Friday" };
+
+/* ─── Theme Palettes ─── */
+const THEMES = {
+  dark: {
+    bg: "#0f0f0f", bgAlt: "#0a0a0a",
+    card: "#1a1a1a", cardAlt: "#141414", cardDark: "#0d0d0d", cardHover: "#181818",
+    modal: "#131313", modalBorder: "#252525",
+    text: "#e0e0e0", textBright: "#fff", textSoft: "#d0d0d0", textMuted: "#888",
+    textDim: "#777", textVeryDim: "#666", textFaint: "#555",
+    border: "#333", borderLight: "#1f1f1f", borderDark: "#151515", borderMid: "#444",
+    inputBg: "#1a1a1a", inputBorder: "#333",
+    accent: "#fff", accentText: "#000",
+    btnBg: "#1a1a1a", btnActiveBg: "#333", btnActiveText: "#fff",
+    overlay: "rgba(0,0,0,0.82)",
+    shadow: "0 24px 80px rgba(0,0,0,0.6)",
+    sectionBg: "#0e0e0e", dragOverBg: "#1c1c1c", dragOverBorder: "#555",
+    readyDot: "#4cdd80", hoverBorderSuffix: "77",
+  },
+  light: {
+    bg: "#f4f4f5", bgAlt: "#fff",
+    card: "#ffffff", cardAlt: "#fafafa", cardDark: "#f0f0f0", cardHover: "#f7f7f7",
+    modal: "#ffffff", modalBorder: "#e0e0e0",
+    text: "#1a1a1a", textBright: "#000", textSoft: "#333", textMuted: "#666",
+    textDim: "#777", textVeryDim: "#999", textFaint: "#bbb",
+    border: "#ddd", borderLight: "#e5e5e5", borderDark: "#eee", borderMid: "#ccc",
+    inputBg: "#f5f5f5", inputBorder: "#ddd",
+    accent: "#000", accentText: "#fff",
+    btnBg: "#fff", btnActiveBg: "#e0e0e0", btnActiveText: "#000",
+    overlay: "rgba(0,0,0,0.4)",
+    shadow: "0 24px 80px rgba(0,0,0,0.15)",
+    sectionBg: "#f8f8f8", dragOverBg: "#f0f0f0", dragOverBorder: "#bbb",
+    readyDot: "#22a355", hoverBorderSuffix: "88",
+  },
+};
 
 /* ─── Empty day template ─── */
 const EMPTY = (d) => ({d, t:"", p:"", f:"Reel", h:"", sc:"", dn:"", br:"", ca:"", tg:""});
@@ -50,7 +95,7 @@ const buildInitialData = () => {
 };
 
 /* ─── Editable Field ─── */
-function EditField({ value, onChange, color, style, multiline = true }) {
+function EditField({ value, onChange, color, style, multiline = true, T = THEMES.dark, placeholder = "" }) {
   const baseStyle = {
     background: "transparent", border: "1px solid transparent",
     borderRadius: "3px", outline: "none", width: "100%",
@@ -60,18 +105,18 @@ function EditField({ value, onChange, color, style, multiline = true }) {
     ...style,
   };
   const handlers = {
-    onFocus: (e) => { e.currentTarget.style.borderColor = (color || "#333"); e.currentTarget.style.background = "#0a0a0a"; },
+    onFocus: (e) => { e.currentTarget.style.borderColor = (color || T.border); e.currentTarget.style.background = T.bgAlt; },
     onBlur: (e) => { e.currentTarget.style.borderColor = "transparent"; e.currentTarget.style.background = "transparent"; },
   };
   if (!multiline) {
-    return <input type="text" value={value} onChange={(e) => onChange(e.target.value)} style={{ ...baseStyle, height: "auto" }} {...handlers} />;
+    return <input type="text" value={value} placeholder={placeholder} onChange={(e) => onChange(e.target.value)} style={{ ...baseStyle, height: "auto" }} {...handlers} />;
   }
   const rows = Math.max(2, (value || "").split("\n").length + 1);
-  return <textarea value={value} onChange={(e) => onChange(e.target.value)} rows={rows} style={{ ...baseStyle, lineHeight: style?.lineHeight || 1.75 }} {...handlers} />;
+  return <textarea value={value} placeholder={placeholder} onChange={(e) => onChange(e.target.value)} rows={rows} style={{ ...baseStyle, lineHeight: style?.lineHeight || 1.75 }} {...handlers} />;
 }
 
 /* ─── Settings Modal ─── */
-function SettingsModal({ brand, onSave, onClose }) {
+function SettingsModal({ brand, onSave, onClose, T, mobile }) {
   const [draft, setDraft] = useState(() => JSON.parse(JSON.stringify(brand)));
 
   const upd = (path, val) => {
@@ -91,45 +136,44 @@ function SettingsModal({ brand, onSave, onClose }) {
     return () => document.removeEventListener("keydown", handleKey);
   }, [onClose]);
 
-  const labelStyle = { fontSize: "0.64rem", color: "#888", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "4px" };
+  const labelStyle = { fontSize: "0.64rem", color: T.textMuted, letterSpacing: "2px", textTransform: "uppercase", marginBottom: "4px" };
   const inputStyle = {
-    background: "#1a1a1a", border: "1px solid #333", borderRadius: "3px",
-    padding: "8px 10px", color: "#e0e0e0", fontFamily: "Inter", fontSize: "0.82rem",
+    background: T.inputBg, border: `1px solid ${T.inputBorder}`, borderRadius: "3px",
+    padding: "8px 10px", color: T.text, fontFamily: "Inter", fontSize: "0.82rem",
     outline: "none", width: "100%", boxSizing: "border-box",
   };
   const sectionStyle = { marginBottom: "24px" };
   const sectionTitle = {
     fontSize: "0.7rem", letterSpacing: "3px", textTransform: "uppercase",
-    color: "#999", marginBottom: "12px", paddingBottom: "8px",
-    borderBottom: "1px solid #252525",
+    color: T.textMuted, marginBottom: "12px", paddingBottom: "8px",
+    borderBottom: `1px solid ${T.modalBorder}`,
   };
 
   return (
     <div onClick={onClose} style={{
       position: "fixed", inset: 0, zIndex: 9999,
-      background: "rgba(0,0,0,0.82)", backdropFilter: "blur(12px)",
+      background: T.overlay, backdropFilter: "blur(12px)",
       display: "flex", justifyContent: "center", alignItems: "flex-start",
       padding: "32px 16px", overflowY: "auto",
     }}>
       <div onClick={(e) => e.stopPropagation()} style={{
-        background: "#131313", border: "1px solid #252525",
+        background: T.modal, border: `1px solid ${T.modalBorder}`,
         borderRadius: "6px", maxWidth: "580px", width: "100%",
-        padding: "36px 32px", position: "relative",
-        color: "#d0d0d0", fontFamily: "'Inter', sans-serif",
-        boxShadow: "0 24px 80px rgba(0,0,0,0.6)",
-        marginBottom: "40px",
+        padding: mobile ? "20px 16px" : "36px 32px", position: "relative",
+        color: T.textSoft, fontFamily: "'Inter', sans-serif",
+        boxShadow: T.shadow, marginBottom: "40px",
       }}>
         {/* Close */}
         <button onClick={onClose} style={{
           position: "absolute", top: "14px", right: "16px",
-          background: "none", border: "1px solid #444", color: "#888",
+          background: "none", border: `1px solid ${T.borderMid}`, color: T.textMuted,
           fontSize: "0.75rem", cursor: "pointer", borderRadius: "3px",
           padding: "4px 10px", fontFamily: "Inter", letterSpacing: "1px",
         }}>ESC</button>
 
         <h2 style={{
           fontSize: "1rem", fontWeight: 600, letterSpacing: "3px",
-          textTransform: "uppercase", color: "#fff", margin: "0 0 28px"
+          textTransform: "uppercase", color: T.textBright, margin: "0 0 28px"
         }}>Brand Settings</h2>
 
         {/* Brand Identity */}
@@ -168,29 +212,30 @@ function SettingsModal({ brand, onSave, onClose }) {
           <div style={sectionTitle}>Day Configuration</div>
           {DY.map((d) => (
             <div key={d} style={{
-              display: "grid", gridTemplateColumns: "50px 1fr 1fr 40px",
+              display: "grid", gridTemplateColumns: mobile ? "40px 1fr 40px" : "50px 1fr 1fr 40px",
               gap: "8px", marginBottom: "8px", alignItems: "end"
             }}>
               <div>
                 <div style={labelStyle}>{d}</div>
                 <div style={{
                   ...inputStyle, textAlign: "center", fontWeight: 600,
-                  color: draft.dayColors[d], background: "#0f0f0f",
+                  color: draft.dayColors[d], background: T.bg,
                   border: `1px solid ${draft.dayColors[d]}44`,
                 }}>{d}</div>
               </div>
               <div>
-                <div style={labelStyle}>Series Name</div>
+                <div style={labelStyle}>{mobile ? "Series / Pillar" : "Series Name"}</div>
                 <input style={inputStyle} value={draft.daySeries[d]} onChange={(e) => upd(`daySeries.${d}`, e.target.value)} />
+                {mobile && <input style={{ ...inputStyle, marginTop: "4px" }} value={draft.pillars[d]} onChange={(e) => upd(`pillars.${d}`, e.target.value)} placeholder="Pillar" />}
               </div>
-              <div>
+              {!mobile && <div>
                 <div style={labelStyle}>Pillar</div>
                 <input style={inputStyle} value={draft.pillars[d]} onChange={(e) => upd(`pillars.${d}`, e.target.value)} />
-              </div>
+              </div>}
               <div>
                 <div style={labelStyle}>Color</div>
                 <input type="color" value={draft.dayColors[d]} onChange={(e) => upd(`dayColors.${d}`, e.target.value)}
-                  style={{ width: "100%", height: "35px", border: "1px solid #333", borderRadius: "3px", background: "#1a1a1a", cursor: "pointer", padding: "2px" }} />
+                  style={{ width: "100%", height: "35px", border: `1px solid ${T.border}`, borderRadius: "3px", background: T.inputBg, cursor: "pointer", padding: "2px" }} />
               </div>
             </div>
           ))}
@@ -199,12 +244,12 @@ function SettingsModal({ brand, onSave, onClose }) {
         {/* Save */}
         <div style={{ display: "flex", gap: "8px", justifyContent: "flex-end" }}>
           <button onClick={onClose} style={{
-            background: "#1a1a1a", border: "1px solid #333", color: "#888",
+            background: T.btnBg, border: `1px solid ${T.border}`, color: T.textMuted,
             padding: "8px 20px", borderRadius: "3px", fontSize: "0.76rem",
             fontFamily: "Inter", letterSpacing: "1px", textTransform: "uppercase", cursor: "pointer",
           }}>Cancel</button>
           <button onClick={() => { onSave(draft); onClose(); }} style={{
-            background: "#fff", border: "1px solid #fff", color: "#000",
+            background: T.accent, border: `1px solid ${T.accent}`, color: T.accentText,
             padding: "8px 20px", borderRadius: "3px", fontSize: "0.76rem",
             fontFamily: "Inter", letterSpacing: "1px", textTransform: "uppercase",
             cursor: "pointer", fontWeight: 600,
@@ -216,7 +261,7 @@ function SettingsModal({ brand, onSave, onClose }) {
 }
 
 /* ─── Modal Brief Component ─── */
-function BriefModal({ item, mo, tw, onClose, edits, onEdit, brand }) {
+function BriefModal({ item, mo, tw, onClose, edits, onEdit, brand, T, mobile, sts, onStatus }) {
   const SC = brand.dayColors;
   const SN = brand.daySeries;
   const PIL = brand.pillars;
@@ -238,19 +283,19 @@ function BriefModal({ item, mo, tw, onClose, edits, onEdit, brand }) {
   const Section = ({ label }) => (
     <div style={{
       fontSize: "0.7rem", letterSpacing: "3.5px", textTransform: "uppercase",
-      color: "#999", marginBottom: "8px", marginTop: "28px",
-      borderTop: "1px solid #252525", paddingTop: "16px"
+      color: T.textMuted, marginBottom: "8px", marginTop: "28px",
+      borderTop: `1px solid ${T.modalBorder}`, paddingTop: "16px"
     }}>{label}</div>
   );
 
-  const fieldBase = { color: "#d0d0d0", fontFamily: "'Inter', sans-serif" };
+  const fieldBase = { color: T.textSoft, fontFamily: "'Inter', sans-serif" };
 
   return (
     <div
       onClick={onClose}
       style={{
         position: "fixed", inset: 0, zIndex: 9999,
-        background: "rgba(0,0,0,0.82)", backdropFilter: "blur(12px)",
+        background: T.overlay, backdropFilter: "blur(12px)",
         display: "flex", justifyContent: "center", alignItems: "flex-start",
         padding: "32px 16px", overflowY: "auto",
       }}
@@ -258,12 +303,11 @@ function BriefModal({ item, mo, tw, onClose, edits, onEdit, brand }) {
       <div
         onClick={(e) => e.stopPropagation()}
         style={{
-          background: "#131313", border: "1px solid #252525",
+          background: T.modal, border: `1px solid ${T.modalBorder}`,
           borderRadius: "6px", maxWidth: "660px", width: "100%",
-          padding: "40px 38px", position: "relative",
-          color: "#d0d0d0", lineHeight: 1.75, fontFamily: "'Inter', sans-serif",
-          boxShadow: "0 24px 80px rgba(0,0,0,0.6)",
-          marginBottom: "40px",
+          padding: mobile ? "20px 16px" : "40px 38px", position: "relative",
+          color: T.textSoft, lineHeight: 1.75, fontFamily: "'Inter', sans-serif",
+          boxShadow: T.shadow, marginBottom: "40px",
         }}
       >
         {/* Close button */}
@@ -271,14 +315,14 @@ function BriefModal({ item, mo, tw, onClose, edits, onEdit, brand }) {
           onClick={onClose}
           style={{
             position: "absolute", top: "14px", right: "16px",
-            background: "none", border: "1px solid #444",
-            color: "#888", fontSize: "0.75rem", cursor: "pointer",
+            background: "none", border: `1px solid ${T.borderMid}`,
+            color: T.textMuted, fontSize: "0.75rem", cursor: "pointer",
             borderRadius: "3px", padding: "4px 10px",
             fontFamily: "Inter", letterSpacing: "1px",
             transition: "all 0.15s",
           }}
-          onMouseEnter={e => { e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#666"; }}
-          onMouseLeave={e => { e.currentTarget.style.color = "#888"; e.currentTarget.style.borderColor = "#444"; }}
+          onMouseEnter={e => { e.currentTarget.style.color = T.textBright; e.currentTarget.style.borderColor = T.textVeryDim; }}
+          onMouseLeave={e => { e.currentTarget.style.color = T.textMuted; e.currentTarget.style.borderColor = T.borderMid; }}
         >
           ESC
         </button>
@@ -291,10 +335,10 @@ function BriefModal({ item, mo, tw, onClose, edits, onEdit, brand }) {
             fontWeight: 600, letterSpacing: "2.5px", textTransform: "uppercase"
           }}>{item.d} · {SN[item.d]}</span>
           <select value={get("f")} onChange={(e) => set("f")(e.target.value)} style={{
-            display: "inline-block", background: "#1e1e1e", color: "#aaa",
+            display: "inline-block", background: T.card, color: T.textMuted,
             padding: "4px 12px", borderRadius: "3px", fontSize: "0.64rem",
             fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase",
-            border: "1px solid #333", fontFamily: "Inter", outline: "none", cursor: "pointer",
+            border: `1px solid ${T.border}`, fontFamily: "Inter", outline: "none", cursor: "pointer",
           }}>
             <option value="Reel">Reel</option>
             <option value="Carousel">Carousel</option>
@@ -304,61 +348,83 @@ function BriefModal({ item, mo, tw, onClose, edits, onEdit, brand }) {
             padding: "4px 10px", borderRadius: "3px", fontSize: "0.64rem",
             fontWeight: 500, letterSpacing: "1.5px", textTransform: "uppercase"
           }}>{PIL[item.d]}</span>
+          {(() => { const stC2 = { Idea: "#f0c040", Drafting: "#60aaff", Ready: "#d070ff", Posted: "#4cdd80" }; const st = sts[key]; return (
+            <select value={st || ""} onChange={(e) => onStatus(key, e.target.value)} style={{
+              display: "inline-block", background: T.card, color: st ? stC2[st] : T.textMuted,
+              padding: "4px 12px", borderRadius: "3px", fontSize: "0.64rem",
+              fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase",
+              border: `1px solid ${st ? stC2[st] + "66" : T.border}`, fontFamily: "Inter", outline: "none", cursor: "pointer",
+            }}>
+              <option value="">Status</option>
+              <option value="Idea">Idea</option>
+              <option value="Drafting">Drafting</option>
+              <option value="Ready">Ready</option>
+              <option value="Posted">Posted</option>
+            </select>
+          ); })()}
         </div>
 
         {/* Meta */}
         <div style={{
-          color: "#777", fontSize: "0.68rem", letterSpacing: "1.5px",
+          color: T.textDim, fontSize: "0.68rem", letterSpacing: "1.5px",
           marginBottom: "22px", textTransform: "uppercase"
         }}>{brand.name} · Month {mo + 1}: {MN[mo]} · Week {tw}</div>
 
         {/* Title */}
-        <EditField value={get("t")} onChange={set("t")} color={c} multiline={false}
-          style={{ ...fieldBase, fontSize: "1.25rem", fontWeight: 600, color: "#f0f0f0", lineHeight: 1.35, marginBottom: "4px" }} />
+        <EditField value={get("t")} onChange={set("t")} color={c} multiline={false} T={T}
+          placeholder="Content title — what is this piece about?"
+          style={{ ...fieldBase, fontSize: "1.25rem", fontWeight: 600, color: T.textBright, lineHeight: 1.35, marginBottom: "4px" }} />
 
         {/* Principle */}
-        <EditField value={get("p")} onChange={set("p")} color={c} multiline={false}
-          style={{ ...fieldBase, fontSize: "0.84rem", color: "#888", fontStyle: "italic", marginTop: "8px", marginBottom: "20px" }} />
+        <EditField value={get("p")} onChange={set("p")} color={c} multiline={false} T={T}
+          placeholder="Angle or principle behind this content"
+          style={{ ...fieldBase, fontSize: "0.84rem", color: T.textMuted, fontStyle: "italic", marginTop: "8px", marginBottom: "20px" }} />
 
         {/* Hook */}
         <Section label="Hook (0-2 sec)" />
         <div style={{ borderLeft: `3px solid ${c}`, paddingLeft: "14px" }}>
-          <EditField value={get("h")} onChange={set("h")} color={c} multiline={false}
-            style={{ ...fieldBase, fontSize: "0.95rem", color: "#e8e8e8", fontStyle: "italic", lineHeight: 1.65 }} />
+          <EditField value={get("h")} onChange={set("h")} color={c} multiline={false} T={T}
+            placeholder="Opening line that grabs attention in the first 2 seconds"
+            style={{ ...fieldBase, fontSize: "0.95rem", color: T.text, fontStyle: "italic", lineHeight: 1.65 }} />
         </div>
 
         {/* Script */}
         <Section label="Script" />
-        <EditField value={get("sc")} onChange={set("sc")} color={c}
-          style={{ ...fieldBase, fontSize: "0.88rem", color: "#d0d0d0", lineHeight: 1.85 }} />
+        <EditField value={get("sc")} onChange={set("sc")} color={c} T={T}
+          placeholder="Write your full script here. Break into sections, include visual directions and dialogue."
+          style={{ ...fieldBase, fontSize: "0.88rem", color: T.textSoft, lineHeight: 1.85 }} />
 
         {/* Delivery Notes */}
         <Section label="Delivery Notes" />
-        <div style={{ background: "#0e0e0e", padding: "14px 16px", borderRadius: "4px", borderLeft: `3px solid ${c}44` }}>
-          <EditField value={get("dn")} onChange={set("dn")} color={c}
-            style={{ ...fieldBase, fontSize: "0.84rem", color: "#aaa", lineHeight: 1.7 }} />
+        <div style={{ background: T.sectionBg, padding: "14px 16px", borderRadius: "4px", borderLeft: `3px solid ${c}44` }}>
+          <EditField value={get("dn")} onChange={set("dn")} color={c} T={T}
+            placeholder="Format, platforms, duration, aspect ratio..."
+            style={{ ...fieldBase, fontSize: "0.84rem", color: T.textMuted, lineHeight: 1.7 }} />
         </div>
 
         {/* B-Roll */}
         <Section label="B-Roll Checklist" />
-        <EditField value={get("br")} onChange={set("br")} color={c}
-          style={{ ...fieldBase, fontSize: "0.84rem", color: "#aaa", lineHeight: 1.9 }} />
+        <EditField value={get("br")} onChange={set("br")} color={c} T={T}
+          placeholder="List the shots you need to capture for this piece"
+          style={{ ...fieldBase, fontSize: "0.84rem", color: T.textMuted, lineHeight: 1.9 }} />
 
         {/* Caption */}
         <Section label="Caption (Instagram)" />
-        <EditField value={get("ca")} onChange={set("ca")} color={c}
-          style={{ ...fieldBase, fontSize: "0.86rem", color: "#bbb", lineHeight: 1.7 }} />
+        <EditField value={get("ca")} onChange={set("ca")} color={c} T={T}
+          placeholder="Write your Instagram caption here. Tell the story, add a call to action."
+          style={{ ...fieldBase, fontSize: "0.86rem", color: T.textSoft, lineHeight: 1.7 }} />
 
         {/* Tags */}
-        <div style={{ marginTop: "24px", borderTop: "1px solid #252525", paddingTop: "14px" }}>
-          <EditField value={get("tg")} onChange={set("tg")} color={c} multiline={false}
-            style={{ ...fieldBase, fontSize: "0.78rem", color: "#777", letterSpacing: "0.3px" }} />
+        <div style={{ marginTop: "24px", borderTop: `1px solid ${T.modalBorder}`, paddingTop: "14px" }}>
+          <EditField value={get("tg")} onChange={set("tg")} color={c} multiline={false} T={T}
+            placeholder="#hashtags #for #this #post"
+            style={{ ...fieldBase, fontSize: "0.78rem", color: T.textDim, letterSpacing: "0.3px" }} />
         </div>
 
         {/* Footer */}
         <div style={{
-          marginTop: "28px", borderTop: "1px solid #1e1e1e", paddingTop: "14px",
-          fontSize: "0.6rem", color: "#555", textTransform: "uppercase",
+          marginTop: "28px", borderTop: `1px solid ${T.borderLight}`, paddingTop: "14px",
+          fontSize: "0.6rem", color: T.textFaint, textTransform: "uppercase",
           letterSpacing: "2.5px", display: "flex", justifyContent: "space-between"
         }}>
           <span>{brand.name} Content Plan</span>
@@ -370,7 +436,7 @@ function BriefModal({ item, mo, tw, onClose, edits, onEdit, brand }) {
 }
 
 /* ─── What's New Modal ─── */
-function WhatsNewModal({ onClose }) {
+function WhatsNewModal({ onClose, T }) {
   useEffect(() => {
     const handleKey = (e) => { if (e.key === "Escape") onClose(); };
     document.addEventListener("keydown", handleKey);
@@ -383,36 +449,36 @@ function WhatsNewModal({ onClose }) {
   return (
     <div onClick={onClose} style={{
       position: "fixed", inset: 0, zIndex: 9999,
-      background: "rgba(0,0,0,0.82)", backdropFilter: "blur(12px)",
+      background: T.overlay, backdropFilter: "blur(12px)",
       display: "flex", justifyContent: "center", alignItems: "flex-start",
       padding: "32px 16px", overflowY: "auto",
     }}>
       <div onClick={(e) => e.stopPropagation()} style={{
-        background: "#131313", border: "1px solid #252525",
+        background: T.modal, border: `1px solid ${T.modalBorder}`,
         borderRadius: "6px", maxWidth: "480px", width: "100%",
         padding: "36px 32px", position: "relative",
-        color: "#d0d0d0", fontFamily: "'Inter', sans-serif",
-        boxShadow: "0 24px 80px rgba(0,0,0,0.6)",
+        color: T.textSoft, fontFamily: "'Inter', sans-serif",
+        boxShadow: T.shadow,
       }}>
         <h2 style={{
           fontSize: "1rem", fontWeight: 600, letterSpacing: "3px",
-          textTransform: "uppercase", color: "#fff", margin: "0 0 6px"
+          textTransform: "uppercase", color: T.textBright, margin: "0 0 6px"
         }}>What's New</h2>
-        <p style={{ fontSize: "0.68rem", color: "#666", letterSpacing: "1px", margin: "0 0 24px" }}>
+        <p style={{ fontSize: "0.68rem", color: T.textVeryDim, letterSpacing: "1px", margin: "0 0 24px" }}>
           v{APP_VERSION}
         </p>
 
         {(newEntries.length > 0 ? newEntries : CHANGELOG.slice(0, 1)).map((entry) => (
           <div key={entry.version} style={{ marginBottom: "20px" }}>
             <div style={{
-              fontSize: "0.72rem", color: "#999", letterSpacing: "2px",
+              fontSize: "0.72rem", color: T.textMuted, letterSpacing: "2px",
               textTransform: "uppercase", marginBottom: "8px",
-              paddingBottom: "6px", borderBottom: "1px solid #252525",
+              paddingBottom: "6px", borderBottom: `1px solid ${T.modalBorder}`,
             }}>v{entry.version} · {entry.date}</div>
             <ul style={{ margin: 0, paddingLeft: "16px" }}>
               {entry.changes.map((c, i) => (
                 <li key={i} style={{
-                  fontSize: "0.78rem", color: "#bbb", lineHeight: 1.8,
+                  fontSize: "0.78rem", color: T.textSoft, lineHeight: 1.8,
                   listStyleType: "'·  '",
                 }}>{c}</li>
               ))}
@@ -424,7 +490,7 @@ function WhatsNewModal({ onClose }) {
           localStorage.setItem("cp-version", APP_VERSION);
           onClose();
         }} style={{
-          background: "#fff", border: "1px solid #fff", color: "#000",
+          background: T.accent, border: `1px solid ${T.accent}`, color: T.accentText,
           padding: "8px 24px", borderRadius: "3px", fontSize: "0.76rem",
           fontFamily: "Inter", letterSpacing: "1px", textTransform: "uppercase",
           cursor: "pointer", fontWeight: 600, width: "100%", marginTop: "8px",
@@ -445,6 +511,8 @@ export default function P() {
       return merged;
     } catch { return { ...DEFAULT_BRAND }; }
   });
+  const [theme, setTheme] = useState(() => { try { return localStorage.getItem("cp-theme") || "dark"; } catch { return "dark"; } });
+  const T = THEMES[theme];
   const [showSettings, setShowSettings] = useState(false);
   const [showWhatsNew, setShowWhatsNew] = useState(() => {
     const seen = localStorage.getItem("cp-version");
@@ -464,8 +532,17 @@ export default function P() {
     } catch {}
     return buildInitialData();
   });
+  const [dy, setDy] = useState(() => { try { return localStorage.getItem("cp-dy") || "Mon"; } catch { return "Mon"; } });
   const [dragOver, setDragOver] = useState(null);
   const dragRef = useRef(null);
+  const [winW, setWinW] = useState(() => typeof window !== "undefined" ? window.innerWidth : 1200);
+  useEffect(() => {
+    const h = () => setWinW(window.innerWidth);
+    window.addEventListener("resize", h);
+    return () => window.removeEventListener("resize", h);
+  }, []);
+  const mobile = winW < 640;
+  const tablet = winW >= 640 && winW < 1024;
 
   // Derive colors/config from brand
   const SC = brand.dayColors;
@@ -482,6 +559,8 @@ export default function P() {
   const sk = (d) => `${wi}-${d}`;
 
   // Persist to localStorage
+  useEffect(() => { localStorage.setItem("cp-theme", theme); }, [theme]);
+  useEffect(() => { localStorage.setItem("cp-dy", dy); }, [dy]);
   useEffect(() => { localStorage.setItem("cp-mo", JSON.stringify(mo)); }, [mo]);
   useEffect(() => { localStorage.setItem("cp-wk", JSON.stringify(wk)); }, [wk]);
   useEffect(() => { localStorage.setItem("cp-vw", vw); }, [vw]);
@@ -633,98 +712,104 @@ export default function P() {
   const bs = {
     borderRadius: "3px", fontSize: "0.72rem", cursor: "pointer",
     fontFamily: "Inter", letterSpacing: "1px", textTransform: "uppercase",
-    transition: "all 0.15s", border: "1px solid #333", padding: "5px 13px",
+    transition: "all 0.15s", border: `1px solid ${T.border}`, padding: "5px 13px",
   };
 
   return (
     <div style={{
-      fontFamily: "'Inter',sans-serif", background: "#0f0f0f",
-      color: "#e0e0e0", padding: "20px", minHeight: "100vh",
+      fontFamily: "'Inter',sans-serif", background: T.bg,
+      color: T.text, padding: mobile ? "10px" : "20px", minHeight: "100vh",
       display: "flex", flexDirection: "column",
     }}>
       {/* What's New Modal */}
       {showWhatsNew && (
-        <WhatsNewModal onClose={() => setShowWhatsNew(false)} />
+        <WhatsNewModal onClose={() => setShowWhatsNew(false)} T={T} />
       )}
 
       {/* Settings Modal */}
       {showSettings && (
-        <SettingsModal brand={brand} onSave={setBrand} onClose={() => setShowSettings(false)} />
+        <SettingsModal brand={brand} onSave={setBrand} onClose={() => setShowSettings(false)} T={T} mobile={mobile} />
       )}
 
       {/* Brief Modal */}
       {modalItem && (
-        <BriefModal item={modalItem} mo={mo} tw={tw} onClose={closeModal} edits={edits} onEdit={handleEdit} brand={brand} />
+        <BriefModal item={modalItem} mo={mo} tw={tw} onClose={closeModal} edits={edits} onEdit={handleEdit} brand={brand} T={T} mobile={mobile} sts={sts} onStatus={(key, val) => setSts(p => ({ ...p, [key]: val }))} />
       )}
 
       {/* Header */}
       <div style={{
-        display: "flex", justifyContent: "space-between", alignItems: "flex-end",
-        borderBottom: "1px solid #222", paddingBottom: "14px", marginBottom: "20px",
+        display: "flex", justifyContent: "space-between", alignItems: mobile ? "stretch" : "flex-end",
+        flexDirection: mobile ? "column" : "row",
+        borderBottom: `1px solid ${T.border}`, paddingBottom: "14px", marginBottom: mobile ? "12px" : "20px",
         flexWrap: "wrap", gap: "10px"
       }}>
         <div>
           <h1 style={{
-            fontSize: "1.3rem", fontWeight: 700, letterSpacing: "3px",
-            textTransform: "uppercase", color: "#fff", margin: 0
+            fontSize: mobile ? "1rem" : "1.3rem", fontWeight: 700, letterSpacing: "3px",
+            textTransform: "uppercase", color: T.textBright, margin: 0
           }}>{brand.name}</h1>
           <p style={{
-            fontSize: "0.68rem", color: "#777", letterSpacing: "2px",
+            fontSize: "0.68rem", color: T.textDim, letterSpacing: "2px",
             textTransform: "uppercase", margin: "4px 0 0"
           }}>{brand.subtitle}</p>
         </div>
-        <div style={{ display: "flex", gap: "5px" }}>
+        <div style={{ display: "flex", gap: "5px", flexWrap: "wrap" }}>
+          <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} style={{
+            ...bs, background: T.btnBg, color: T.textMuted, borderColor: T.border,
+          }} onMouseEnter={e => { e.currentTarget.style.color = T.textBright; e.currentTarget.style.borderColor = T.borderMid; }}
+             onMouseLeave={e => { e.currentTarget.style.color = T.textMuted; e.currentTarget.style.borderColor = T.border; }}
+          >{theme === "dark" ? "\u2600\uFE0F Light" : "\uD83C\uDF19 Dark"}</button>
           <button onClick={() => setShowSettings(true)} style={{
-            ...bs, background: "#1a1a1a", color: "#888", borderColor: "#333",
-          }} onMouseEnter={e => { e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#555"; }}
-             onMouseLeave={e => { e.currentTarget.style.color = "#888"; e.currentTarget.style.borderColor = "#333"; }}
+            ...bs, background: T.btnBg, color: T.textMuted, borderColor: T.border,
+          }} onMouseEnter={e => { e.currentTarget.style.color = T.textBright; e.currentTarget.style.borderColor = T.borderMid; }}
+             onMouseLeave={e => { e.currentTarget.style.color = T.textMuted; e.currentTarget.style.borderColor = T.border; }}
           >Settings</button>
           <button onClick={exportData} style={{
-            ...bs, background: "#1a1a1a", color: "#888", borderColor: "#333",
-          }} onMouseEnter={e => { e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#555"; }}
-             onMouseLeave={e => { e.currentTarget.style.color = "#888"; e.currentTarget.style.borderColor = "#333"; }}
+            ...bs, background: T.btnBg, color: T.textMuted, borderColor: T.border,
+          }} onMouseEnter={e => { e.currentTarget.style.color = T.textBright; e.currentTarget.style.borderColor = T.borderMid; }}
+             onMouseLeave={e => { e.currentTarget.style.color = T.textMuted; e.currentTarget.style.borderColor = T.border; }}
           >Export</button>
           <button onClick={importData} style={{
-            ...bs, background: "#1a1a1a", color: "#888", borderColor: "#333",
-          }} onMouseEnter={e => { e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#555"; }}
-             onMouseLeave={e => { e.currentTarget.style.color = "#888"; e.currentTarget.style.borderColor = "#333"; }}
+            ...bs, background: T.btnBg, color: T.textMuted, borderColor: T.border,
+          }} onMouseEnter={e => { e.currentTarget.style.color = T.textBright; e.currentTarget.style.borderColor = T.borderMid; }}
+             onMouseLeave={e => { e.currentTarget.style.color = T.textMuted; e.currentTarget.style.borderColor = T.border; }}
           >Import</button>
-          {["week", "overview"].map((v) => (
+          {["day", "week", "overview"].map((v) => (
             <button key={v} onClick={() => { setVw(v); setAp(null); }} style={{
               ...bs,
-              background: vw === v ? "#fff" : "#1a1a1a",
-              color: vw === v ? "#000" : "#888",
-              borderColor: vw === v ? "#fff" : "#333"
+              background: vw === v ? T.accent : T.btnBg,
+              color: vw === v ? T.accentText : T.textMuted,
+              borderColor: vw === v ? T.accent : T.border
             }}>{v}</button>
           ))}
         </div>
       </div>
 
       {/* Pillar Filters */}
-      <div style={{ display: "flex", gap: "5px", marginBottom: "14px", flexWrap: "wrap" }}>
+      <div style={{ display: "flex", gap: "5px", marginBottom: "14px", flexWrap: mobile ? "nowrap" : "wrap", overflowX: mobile ? "auto" : "visible", WebkitOverflowScrolling: "touch" }}>
         <span style={{
-          fontSize: "0.66rem", color: "#666", letterSpacing: "2px",
+          fontSize: "0.66rem", color: T.textVeryDim, letterSpacing: "2px",
           textTransform: "uppercase", display: "flex", alignItems: "center", marginRight: "4px"
         }}>PILLARS</span>
         {Object.entries(PILC).map(([p, c]) => (
           <button key={p} onClick={() => setAp(ap === p ? null : p)} style={{
-            ...bs, background: ap === p ? c : "#1a1a1a",
+            ...bs, background: ap === p ? c : T.btnBg,
             color: ap === p ? "#000" : c,
             borderColor: ap === p ? c : c + "44",
-            fontSize: "0.68rem", padding: "4px 12px"
+            fontSize: "0.68rem", padding: "4px 12px", flexShrink: 0, whiteSpace: "nowrap",
           }}>{p}</button>
         ))}
       </div>
 
       {/* Month tabs */}
-      <div style={{ display: "flex", gap: "5px", marginBottom: "8px", flexWrap: "wrap" }}>
+      <div style={{ display: "flex", gap: "5px", marginBottom: "8px", flexWrap: mobile ? "nowrap" : "wrap", overflowX: mobile ? "auto" : "visible", WebkitOverflowScrolling: "touch", paddingBottom: mobile ? "4px" : 0 }}>
         {MN.map((m, i) => (
           <button key={i} onClick={() => { setMo(i); setWk(0); }} style={{
             ...bs, fontWeight: mo === i ? 600 : 400,
-            background: mo === i ? "#fff" : "#1a1a1a",
-            color: mo === i ? "#000" : "#888",
-            borderColor: mo === i ? "#fff" : "#333",
-            padding: "6px 13px"
+            background: mo === i ? T.accent : T.btnBg,
+            color: mo === i ? T.accentText : T.textMuted,
+            borderColor: mo === i ? T.accent : T.border,
+            padding: "6px 13px", flexShrink: 0, whiteSpace: "nowrap",
           }}>M{i + 1} · {m}</button>
         ))}
       </div>
@@ -734,53 +819,160 @@ export default function P() {
         {[0, 1, 2, 3].map((w) => (
           <button key={w} onClick={() => setWk(w)} style={{
             ...bs,
-            background: wk === w ? "#333" : "#1a1a1a",
-            color: wk === w ? "#fff" : "#777",
-            borderColor: wk === w ? "#444" : "#333"
+            background: wk === w ? T.btnActiveBg : T.btnBg,
+            color: wk === w ? T.btnActiveText : T.textDim,
+            borderColor: wk === w ? T.borderMid : T.border
           }}>WK {mo * 4 + w + 1}</button>
         ))}
         <span style={{
-          fontSize: "0.66rem", color: "#666", marginLeft: "6px", letterSpacing: "1px"
+          fontSize: "0.66rem", color: T.textVeryDim, marginLeft: "6px", letterSpacing: "1px"
         }}>WEEK {tw} / 48</span>
       </div>
+
+      {/* DAY VIEW */}
+      {vw === "day" && (() => {
+        const item = data.find((x) => x.d === dy);
+        const st = sts[sk(dy)];
+        const c = SC[dy];
+        return (
+          <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
+            {/* Day tabs */}
+            <div style={{ display: "flex", gap: "5px", marginBottom: "14px", flexWrap: "wrap" }}>
+              {DY.map((d) => (
+                <button key={d} onClick={() => setDy(d)} style={{
+                  ...bs,
+                  background: dy === d ? SC[d] : T.btnBg,
+                  color: dy === d ? "#000" : SC[d],
+                  borderColor: dy === d ? SC[d] : SC[d] + "44",
+                  fontWeight: dy === d ? 600 : 400,
+                }}>{DY_FULL[d]}</button>
+              ))}
+            </div>
+
+            {/* Day card */}
+            <div
+              onClick={() => item && openDoc(item)}
+              style={{
+                background: T.cardAlt, border: `1px solid ${c}33`,
+                borderRadius: "4px", padding: mobile ? "16px" : "24px",
+                flex: 1, cursor: item ? "pointer" : "default",
+                display: "flex", flexDirection: "column",
+                transition: "all 0.15s",
+              }}
+            >
+              {/* Header */}
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "12px", flexWrap: "wrap", gap: "6px" }}>
+                <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
+                  <span style={{
+                    background: c, color: "#000", padding: "4px 14px", borderRadius: "3px",
+                    fontSize: "0.68rem", fontWeight: 600, letterSpacing: "2.5px", textTransform: "uppercase",
+                  }}>{DY_FULL[dy]} · {SN[dy]}</span>
+                  <span style={{
+                    background: c + "18", color: c, padding: "4px 10px", borderRadius: "3px",
+                    fontSize: "0.64rem", fontWeight: 500, letterSpacing: "1.5px", textTransform: "uppercase",
+                  }}>{PIL[dy]}</span>
+                  <span style={{
+                    background: T.card, color: T.textMuted, padding: "4px 10px", borderRadius: "3px",
+                    fontSize: "0.64rem", letterSpacing: "1.5px", textTransform: "uppercase",
+                    border: `1px solid ${T.border}`,
+                  }}>{edits[`${wi}-${dy}`]?.f ?? (item?.f || "Reel")}</span>
+                </div>
+                {(() => { const stC2 = { Idea: "#f0c040", Drafting: "#60aaff", Ready: "#d070ff", Posted: "#4cdd80" }; return (
+                  <select value={st || ""} onChange={(e) => { e.stopPropagation(); setSts(p => ({ ...p, [sk(dy)]: e.target.value })); }}
+                    onClick={(e) => e.stopPropagation()}
+                    style={{
+                      background: T.card, color: st ? stC2[st] : T.textMuted,
+                      padding: "4px 12px", borderRadius: "3px", fontSize: "0.64rem",
+                      fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase",
+                      border: `1px solid ${st ? stC2[st] + "66" : T.border}`, fontFamily: "Inter", outline: "none", cursor: "pointer",
+                    }}>
+                    <option value="">Status</option>
+                    <option value="Idea">Idea</option>
+                    <option value="Drafting">Drafting</option>
+                    <option value="Ready">Ready</option>
+                    <option value="Posted">Posted</option>
+                  </select>
+                ); })()}
+              </div>
+
+              {/* Content */}
+              <div style={{ flex: 1 }}>
+                <div style={{
+                  fontSize: "1.1rem", fontWeight: 600, color: T.textBright,
+                  marginBottom: "4px", lineHeight: 1.4,
+                }}>{getEdited(item || { d: dy }, "t") || <span style={{ color: T.textFaint }}>Click to add title</span>}</div>
+                <div style={{
+                  fontSize: "0.82rem", color: T.textMuted, fontStyle: "italic",
+                  marginBottom: "12px", lineHeight: 1.4,
+                }}>{getEdited(item || { d: dy }, "p") || <span style={{ color: T.textFaint }}>Click to add principle</span>}</div>
+                {(getEdited(item || { d: dy }, "h")) && (
+                  <div style={{
+                    borderLeft: `3px solid ${c}`, paddingLeft: "12px",
+                    fontSize: "0.88rem", color: T.text, fontStyle: "italic", lineHeight: 1.6, marginBottom: "12px",
+                  }}>{getEdited(item || { d: dy }, "h")}</div>
+                )}
+                {(getEdited(item || { d: dy }, "sc")) && (
+                  <div style={{
+                    fontSize: "0.82rem", color: T.textSoft, lineHeight: 1.8, marginBottom: "12px",
+                    whiteSpace: "pre-wrap",
+                  }}>{getEdited(item || { d: dy }, "sc")}</div>
+                )}
+              </div>
+
+              {/* Footer hint */}
+              <div style={{
+                fontSize: "0.6rem", color: T.textFaint, letterSpacing: "2px",
+                textTransform: "uppercase", marginTop: "12px", borderTop: `1px solid ${T.borderLight}`, paddingTop: "10px",
+              }}>Click to open full brief · {brand.name} · {MN[mo]} · Week {tw}</div>
+            </div>
+
+            {/* Disclaimer */}
+            <p style={{
+              fontSize: "0.6rem", color: T.textFaint, letterSpacing: "1px",
+              marginTop: "12px", lineHeight: 1.6,
+            }}>All content is saved locally in your browser. Use Export to back up your data. Clearing browser data will erase your content unless you have a backup file.</p>
+          </div>
+        );
+      })()}
 
       {/* WEEK VIEW */}
       {vw === "week" && (
         <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
           {/* Legend */}
-          <div style={{ display: "flex", gap: "5px", flexWrap: "wrap", marginBottom: "14px" }}>
+          <div style={{ display: "flex", gap: "5px", flexWrap: "wrap", marginBottom: "14px", overflowX: mobile ? "auto" : "visible", WebkitOverflowScrolling: "touch" }}>
             {DY.map((d) => {
               const item = data.find((x) => x.d === d);
               return (
                 <div key={d} style={{
-                  background: "#1a1a1a", border: `1px solid ${SC[d]}33`,
+                  background: T.card, border: `1px solid ${SC[d]}33`,
                   borderRadius: "3px", padding: "3px 10px", fontSize: "0.7rem",
                   color: SC[d], letterSpacing: "1px", opacity: isMatch(d) ? 1 : 0.3
                 }}>
-                  <span style={{ fontWeight: 600 }}>{d}</span> · {SN[d]}{" "}
-                  <span style={{ color: "#777", fontSize: "0.64rem" }}>({edits[`${wi}-${d}`]?.f ?? (item?.f || "—")})</span>
+                  <span style={{ fontWeight: 600 }}>{DY_FULL[d]}</span> · {SN[d]}{" "}
+                  <span style={{ color: T.textDim, fontSize: "0.64rem" }}>({edits[`${wi}-${d}`]?.f ?? (item?.f || "—")})</span>
                 </div>
               );
             })}
           </div>
 
           <p style={{
-            fontSize: "0.66rem", color: "#666", letterSpacing: "2px",
+            fontSize: "0.66rem", color: T.textVeryDim, letterSpacing: "2px",
             textTransform: "uppercase", marginBottom: "8px"
           }}>Drag cards to rearrange · Click to open brief</p>
 
           {/* Grid */}
           <div style={{
-            display: "grid", gridTemplateColumns: "repeat(5,1fr)",
-            gridTemplateRows: "auto 1fr",
-            gap: "5px", marginBottom: "12px", flex: 1,
+            display: "grid",
+            gridTemplateColumns: mobile ? "1fr" : tablet ? "repeat(2,1fr)" : "repeat(5,1fr)",
+            gridTemplateRows: mobile ? undefined : tablet ? undefined : "auto 1fr",
+            gap: "4px", marginBottom: "12px", flex: 1,
           }}>
-            {DY.map((d) => (
+            {!mobile && !tablet && DY.map((d) => (
               <div key={d} style={{
-                background: "#1a1a1a", borderRadius: "3px", padding: "4px",
-                textAlign: "center", fontSize: "0.66rem", fontWeight: 600,
+                background: T.card, borderRadius: "3px", padding: "4px",
+                textAlign: "center", fontSize: "0.62rem", fontWeight: 600,
                 color: SC[d], letterSpacing: "1.5px", opacity: isMatch(d) ? 1 : 0.3
-              }}>{d}</div>
+              }}>{DY_FULL[d].toUpperCase()}</div>
             ))}
             {DY.map((d) => {
               const item = data.find((x) => x.d === d);
@@ -791,9 +983,9 @@ export default function P() {
                   onDragLeave={handleDragLeave}
                   onDrop={(e) => handleDrop(wi, d, e)}
                   style={{
-                    background: isOver ? "#1c1c1c" : "transparent",
-                    border: isOver ? "1px dashed #555" : "1px dashed transparent",
-                    borderRadius: "3px", minHeight: "200px",
+                    background: isOver ? T.dragOverBg : "transparent",
+                    border: isOver ? `1px dashed ${T.dragOverBorder}` : "1px dashed transparent",
+                    borderRadius: "3px", minHeight: "60px",
                     transition: "all 0.15s",
                   }}
                 />
@@ -811,72 +1003,52 @@ export default function P() {
                   onDrop={(e) => handleDrop(wi, d, e)}
                   onClick={() => openDoc(item)}
                   style={{
-                    background: isOver ? "#1e1e1e" : (match ? "#141414" : "#0d0d0d"),
-                    border: isOver ? "1px dashed #666" : `1px solid ${match ? "#1f1f1f" : "#151515"}`,
-                    borderRadius: "3px", padding: "9px", minHeight: "200px",
-                    cursor: "grab", transition: "all 0.2s", position: "relative",
-                    opacity: match ? 1 : 0.25
+                    background: isOver ? T.cardHover : (match ? T.cardAlt : T.cardDark),
+                    border: isOver ? `1px dashed ${T.textVeryDim}` : `1px solid ${match ? T.borderLight : T.borderDark}`,
+                    borderRadius: "3px", padding: "6px", minHeight: "60px",
+                    cursor: "grab", transition: "all 0.15s", position: "relative",
+                    opacity: match ? 1 : 0.2
                   }}
                   onMouseEnter={(e) => {
                     if (match) {
-                      e.currentTarget.style.borderColor = SC[d] + "77";
-                      e.currentTarget.style.background = "#181818";
+                      e.currentTarget.style.borderColor = SC[d] + T.hoverBorderSuffix;
+                      e.currentTarget.style.background = T.cardHover;
                     }
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = match ? "#1f1f1f" : "#151515";
-                    e.currentTarget.style.background = match ? "#141414" : "#0d0d0d";
+                    e.currentTarget.style.borderColor = match ? T.borderLight : T.borderDark;
+                    e.currentTarget.style.background = match ? T.cardAlt : T.cardDark;
                   }}
                 >
-                  <div style={{
-                    display: "flex", justifyContent: "space-between",
-                    alignItems: "center", marginBottom: "5px"
-                  }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "2px" }}>
                     <span style={{
-                      fontSize: "0.64rem", color: SC[d], fontWeight: 600,
-                      letterSpacing: "1px", textTransform: "uppercase", opacity: 0.85
-                    }}>{getEdited(item, "f")}</span>
+                      fontSize: "0.56rem", color: SC[d], letterSpacing: "1px",
+                      textTransform: "uppercase", opacity: 0.8
+                    }}>{(mobile || tablet) ? `${DY_FULL[d]} · ` : ""}{getEdited(item, "f")}{st ? ` · ${st}` : ""}</span>
                     <div style={{
-                      width: "6px", height: "6px", borderRadius: "50%", background: "#4cdd80"
-                    }} title="Script ready" />
+                      width: "4px", height: "4px", borderRadius: "50%",
+                      background: st ? (stC[st] || T.readyDot) : T.readyDot,
+                    }} />
                   </div>
                   <div style={{
-                    fontSize: "0.76rem", color: SC[d], fontWeight: 600,
-                    marginBottom: "3px", lineHeight: 1.35
+                    fontSize: "0.68rem", color: T.text, lineHeight: 1.4, marginBottom: "2px"
                   }}>{getEdited(item, "t")}</div>
                   <div style={{
-                    fontSize: "0.64rem", color: "#777", marginBottom: "5px", lineHeight: 1.35
+                    fontSize: "0.58rem", color: T.textDim, lineHeight: 1.3
                   }}>{getEdited(item, "p")}</div>
-                  <div style={{
-                    fontSize: "0.68rem", color: "#999", fontStyle: "italic",
-                    lineHeight: 1.4, borderLeft: `2px solid ${SC[d]}33`, paddingLeft: "6px"
-                  }}>{getEdited(item, "h")}</div>
-                  {st && (
-                    <div style={{ marginTop: "5px", fontSize: "0.6rem", color: stC[st] }}>
-                      ● {st}
-                    </div>
+                  {getEdited(item, "h") && (
+                    <div style={{
+                      fontSize: "0.58rem", color: T.textMuted, fontStyle: "italic",
+                      lineHeight: 1.4, marginTop: "4px",
+                      borderLeft: `2px solid ${SC[d]}33`, paddingLeft: "6px",
+                    }}>{getEdited(item, "h")}</div>
                   )}
-                  <div style={{ marginTop: "6px" }}>
-                    <select
-                      value={st || ""}
-                      onChange={(e) => {
-                        e.stopPropagation();
-                        setSts((p) => ({ ...p, [sk(d)]: e.target.value }));
-                      }}
-                      onClick={(e) => e.stopPropagation()}
-                      style={{
-                        fontSize: "0.64rem", border: `1px solid ${stC[st] || "#333"}`,
-                        borderRadius: "3px", padding: "2px 4px", background: "#1a1a1a",
-                        color: stC[st] || "#777", fontFamily: "Inter", outline: "none", width: "100%"
-                      }}
-                    >
-                      <option value="">Status</option>
-                      <option value="Idea">Idea</option>
-                      <option value="Drafting">Drafting</option>
-                      <option value="Ready">Ready</option>
-                      <option value="Posted">Posted</option>
-                    </select>
-                  </div>
+                  {getEdited(item, "sc") && (
+                    <div style={{
+                      fontSize: "0.56rem", color: T.textVeryDim, lineHeight: 1.55,
+                      marginTop: "6px", whiteSpace: "pre-wrap",
+                    }}>{getEdited(item, "sc")}</div>
+                  )}
                 </div>
               );
             })}
@@ -884,7 +1056,7 @@ export default function P() {
 
           {/* Disclaimer */}
           <p style={{
-            fontSize: "0.6rem", color: "#555", letterSpacing: "1px",
+            fontSize: "0.6rem", color: T.textFaint, letterSpacing: "1px",
             marginTop: "12px", lineHeight: 1.6,
           }}>All content is saved locally in your browser. Use Export to back up your data. Clearing browser data will erase your content unless you have a backup file.</p>
         </div>
@@ -894,33 +1066,47 @@ export default function P() {
       {vw === "overview" && (
         <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
           <p style={{
-            fontSize: "0.66rem", color: "#666", letterSpacing: "2px",
+            fontSize: "0.66rem", color: T.textVeryDim, letterSpacing: "2px",
             textTransform: "uppercase", marginBottom: "10px"
           }}>Month {mo + 1}: {MN[mo]} — Drag cards to rearrange</p>
           <div style={{
-            display: "grid", gridTemplateColumns: "auto repeat(5,1fr)",
-            gridTemplateRows: "auto repeat(4, 1fr)",
+            display: mobile ? "flex" : "grid",
+            flexDirection: mobile ? "column" : undefined,
+            gridTemplateColumns: mobile ? undefined : (tablet ? "auto repeat(3,1fr)" : "auto repeat(5,1fr)"),
+            gridTemplateRows: mobile ? undefined : "auto repeat(4, 1fr)",
             gap: "4px", flex: 1,
           }}>
+            {!mobile && <>
             <div />
-            {DY.map((d) => (
+            {(tablet ? DY.slice(0, 3) : DY).map((d) => (
               <div key={d} style={{
-                background: "#1a1a1a", borderRadius: "3px", padding: "4px",
+                background: T.card, borderRadius: "3px", padding: "4px",
                 textAlign: "center", fontSize: "0.62rem", fontWeight: 600,
                 color: SC[d], letterSpacing: "1.5px", opacity: isMatch(d) ? 1 : 0.3
               }}>{SN[d].toUpperCase()}</div>
             ))}
+            </>}
             {[0, 1, 2, 3].map((w) => {
               const gi = mo * 4 + w;
               const wd = allData[gi];
+              const days = tablet ? DY.slice(0, 3) : DY;
               return (
                 <React.Fragment key={`row-${w}`}>
-                  <div style={{
-                    background: "#1a1a1a", borderRadius: "3px", padding: "5px",
-                    fontSize: "0.64rem", fontWeight: 700, color: "#bbb",
-                    letterSpacing: "1.5px", display: "flex", alignItems: "center"
-                  }}>WK{gi + 1}</div>
-                  {DY.map((d) => {
+                  {mobile && (
+                    <div style={{
+                      background: T.card, borderRadius: "3px", padding: "6px 8px",
+                      fontSize: "0.68rem", fontWeight: 700, color: T.textSoft,
+                      letterSpacing: "1.5px", marginTop: w > 0 ? "8px" : 0,
+                    }}>WK{gi + 1}</div>
+                  )}
+                  {!mobile && (
+                    <div style={{
+                      background: T.card, borderRadius: "3px", padding: "5px",
+                      fontSize: "0.64rem", fontWeight: 700, color: T.textSoft,
+                      letterSpacing: "1.5px", display: "flex", alignItems: "center"
+                    }}>WK{gi + 1}</div>
+                  )}
+                  {days.map((d) => {
                     const item = wd.find((x) => x.d === d);
                     const isOver = dragOver === `${gi}-${d}`;
                     const match = isMatch(d);
@@ -930,9 +1116,9 @@ export default function P() {
                         onDragLeave={handleDragLeave}
                         onDrop={(e) => handleDrop(gi, d, e)}
                         style={{
-                          background: isOver ? "#1c1c1c" : "transparent",
-                          border: isOver ? "1px dashed #555" : "1px dashed transparent",
-                          borderRadius: "3px", minHeight: "60px",
+                          background: isOver ? T.dragOverBg : "transparent",
+                          border: isOver ? `1px dashed ${T.dragOverBorder}` : "1px dashed transparent",
+                          borderRadius: "3px", minHeight: mobile ? "40px" : "60px",
                           transition: "all 0.15s",
                         }}
                       />
@@ -940,7 +1126,7 @@ export default function P() {
                     return (
                       <div
                         key={`${w}-${d}`}
-                        draggable
+                        draggable={!mobile}
                         onDragStart={(e) => handleDragStart(gi, d, item, e)}
                         onDragEnd={handleDragEnd}
                         onDragOver={(e) => handleDragOver(gi, d, e)}
@@ -948,30 +1134,30 @@ export default function P() {
                         onDrop={(e) => handleDrop(gi, d, e)}
                         onClick={() => { setWk(w); openDoc(item); }}
                         style={{
-                          background: isOver ? "#1e1e1e" : (match ? "#141414" : "#0d0d0d"),
-                          border: isOver ? "1px dashed #666" : ("1px solid " + (match ? "#1f1f1f" : "#151515")),
-                          borderRadius: "3px", padding: "6px", cursor: "grab",
-                          minHeight: "60px", position: "relative", transition: "all 0.15s",
+                          background: isOver ? T.cardHover : (match ? T.cardAlt : T.cardDark),
+                          border: isOver ? `1px dashed ${T.textVeryDim}` : `1px solid ${match ? T.borderLight : T.borderDark}`,
+                          borderRadius: "3px", padding: "6px", cursor: mobile ? "pointer" : "grab",
+                          minHeight: mobile ? "40px" : "60px", position: "relative", transition: "all 0.15s",
                           opacity: match ? 1 : 0.2
                         }}
-                        onMouseEnter={(e) => { if (match) e.currentTarget.style.borderColor = "#444"; }}
-                        onMouseLeave={(e) => { e.currentTarget.style.borderColor = match ? "#1f1f1f" : "#151515"; }}
+                        onMouseEnter={(e) => { if (match) e.currentTarget.style.borderColor = T.borderMid; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.borderColor = match ? T.borderLight : T.borderDark; }}
                       >
                         <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "2px" }}>
                           <span style={{
                             fontSize: "0.56rem", color: SC[d], letterSpacing: "1px",
                             textTransform: "uppercase", opacity: 0.8
-                          }}>{edits[`${gi}-${d}`]?.f ?? item.f}</span>
+                          }}>{mobile ? `${DY_FULL[d]} · ` : ""}{edits[`${gi}-${d}`]?.f ?? item.f}</span>
                           <div style={{
-                            width: "4px", height: "4px", borderRadius: "50%", background: "#4cdd80"
+                            width: "4px", height: "4px", borderRadius: "50%", background: T.readyDot
                           }} />
                         </div>
                         <div style={{
-                          fontSize: "0.68rem", color: "#e0e0e0", lineHeight: 1.4, marginBottom: "2px"
-                        }}>{item.t}</div>
+                          fontSize: "0.68rem", color: T.text, lineHeight: 1.4, marginBottom: "2px"
+                        }}>{edits[`${gi}-${d}`]?.t ?? item.t}</div>
                         <div style={{
-                          fontSize: "0.58rem", color: "#777", lineHeight: 1.3
-                        }}>{item.p}</div>
+                          fontSize: "0.58rem", color: T.textDim, lineHeight: 1.3
+                        }}>{edits[`${gi}-${d}`]?.p ?? item.p}</div>
                       </div>
                     );
                   })}
