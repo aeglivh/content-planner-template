@@ -12,48 +12,21 @@ const DEFAULT_BRAND = {
 
 const DY = ["Mon", "Tue", "Wed", "Thu", "Fri"];
 
-/* ─── Example Content (1 week) ─── */
-const EXAMPLE_WEEK = [
-  {d:"Mon",t:"Example: Your Monday Topic",p:"Principle or angle for this piece",f:"Reel",h:"Hook line that grabs attention in 0-2 seconds.",
+/* ─── Empty day template ─── */
+const EMPTY = (d) => ({d, t:"", p:"", f:"Reel", h:"", sc:"", dn:"", br:"", ca:"", tg:""});
+const BLANK_WEEK = () => DY.map(d => EMPTY(d));
+
+/* ─── Build initial data: Mon W1 has example, everything else blank ─── */
+const buildInitialData = () => {
+  const weeks = [];
+  for (let i = 0; i < 16; i++) weeks.push(BLANK_WEEK());
+  // Week 1 Monday: example content
+  weeks[0][0] = {d:"Mon",t:"Example: Your Monday Topic",p:"Principle or angle for this piece",f:"Reel",h:"Hook line that grabs attention in 0-2 seconds.",
   sc:"Write your full script here.\nBreak into sections as needed.\nInclude visual directions and dialogue.",
   dn:"Format: vertical video, 9:16.\nPlatforms: Instagram Reels, TikTok.\nDuration: 30-60 seconds.",
   br:"Shot 1: Opening visual\nShot 2: Main demonstration\nShot 3: Close-up detail\nShot 4: Final reveal",
   ca:"Your Instagram caption goes here. Tell the story behind the content.\n\nAdd a call to action.",
-  tg:"#yourbrand #content #monday"},
-
-  {d:"Tue",t:"Example: Your Tuesday Topic",p:"Educational angle or design principle",f:"Carousel",h:"The one thing most people get wrong about...",
-  sc:"SLIDE 1: Bold opening statement\nSLIDE 2: The problem explained\nSLIDE 3: Key insight\nSLIDE 4: Visual example\nSLIDE 5: The solution\nSLIDE 6: Before and after\nSLIDE 7: Pro tip\nSLIDE 8: Summary and CTA",
-  dn:"8-slide Instagram carousel, 1080x1350px.\nPost to Instagram and TikTok simultaneously.",
-  br:"Image 1: Title card\nImage 2: Problem illustration\nImage 3: Insight graphic\nImage 4-6: Example photos\nImage 7: Tip card\nImage 8: CTA card",
-  ca:"Your carousel caption goes here.\n\nExplain what followers will learn from swiping through.",
-  tg:"#yourbrand #education #tuesday"},
-
-  {d:"Wed",t:"Example: Your Wednesday Topic",p:"Shareable opinion or hot take",f:"Reel",h:"This common mistake is everywhere and nobody talks about it.",
-  sc:"Open with the hook.\nShow the mistake in action.\nExplain why it matters.\nReveal the better approach.\nEnd with a memorable takeaway.",
-  dn:"Format: vertical video, 9:16.\nPlatforms: Instagram Reels, TikTok.\nDuration: 15-30 seconds.\nFast-paced editing.",
-  br:"Shot 1: The mistake (example)\nShot 2: Your reaction\nShot 3: The correct approach\nShot 4: Side-by-side comparison",
-  ca:"Wednesday hot take. Share your honest opinion.\n\nAsk your audience if they agree or disagree.",
-  tg:"#yourbrand #opinion #wednesday"},
-
-  {d:"Thu",t:"Example: Your Thursday Topic",p:"Personal story or behind-the-scenes",f:"Reel",h:"Something I learned the hard way...",
-  sc:"Start with a personal anecdote.\nConnect it to your audience.\nShare the lesson learned.\nMake it relatable and authentic.\nEnd with encouragement.",
-  dn:"Format: vertical video, 9:16.\nPlatforms: Instagram Reels, TikTok.\nDuration: 30-90 seconds.\nCasual, authentic tone.",
-  br:"Shot 1: Talking to camera\nShot 2: Related b-roll\nShot 3: The moment/turning point\nShot 4: Current day result",
-  ca:"A personal story about your journey.\n\nBe real with your audience. They connect with authenticity.",
-  tg:"#yourbrand #personal #thursday"},
-
-  {d:"Fri",t:"Example: Your Friday Topic",p:"Aspirational or transformation content",f:"Carousel",h:"What if you could transform any space with just one change?",
-  sc:"SLIDE 1: The aspiration\nSLIDE 2: Where most people start\nSLIDE 3: The shift in thinking\nSLIDE 4: Step-by-step\nSLIDE 5: Real example\nSLIDE 6: The result\nSLIDE 7: How to start today\nSLIDE 8: Your invitation",
-  dn:"8-slide Instagram carousel, 1080x1350px.\nPost to Instagram.\nEnd-of-week energy: aspirational and uplifting.",
-  br:"Image 1: Dream scenario\nImage 2: Starting point\nImage 3: Process shot\nImage 4-6: Transformation steps\nImage 7: Action card\nImage 8: Branded CTA",
-  ca:"Friday inspiration. Paint a picture of what's possible.\n\nInvite your audience to take one small step this weekend.",
-  tg:"#yourbrand #aspiration #friday"},
-];
-
-/* ─── Build initial data: 1 example week + 15 empty weeks ─── */
-const buildInitialData = () => {
-  const weeks = [EXAMPLE_WEEK.map(i => ({ ...i }))];
-  for (let i = 1; i < 16; i++) weeks.push([]);
+  tg:"#yourbrand #content #monday"};
   return weeks;
 };
 
