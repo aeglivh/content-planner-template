@@ -357,9 +357,9 @@ export default function P() {
     catch { return { ...DEFAULT_BRAND }; }
   });
   const [showSettings, setShowSettings] = useState(false);
-  const [mo, setMo] = useState(0);
-  const [wk, setWk] = useState(0);
-  const [vw, setVw] = useState("week");
+  const [mo, setMo] = useState(() => { try { return JSON.parse(localStorage.getItem("cp-mo")) || 0; } catch { return 0; } });
+  const [wk, setWk] = useState(() => { try { return JSON.parse(localStorage.getItem("cp-wk")) || 0; } catch { return 0; } });
+  const [vw, setVw] = useState(() => { try { return localStorage.getItem("cp-vw") || "week"; } catch { return "week"; } });
   const [ap, setAp] = useState(null);
   const [sts, setSts] = useState(() => { try { return JSON.parse(localStorage.getItem("cp-sts") || "{}"); } catch { return {}; } });
   const [modalItem, setModalItem] = useState(null);
@@ -389,6 +389,9 @@ export default function P() {
   const sk = (d) => `${wi}-${d}`;
 
   // Persist to localStorage
+  useEffect(() => { localStorage.setItem("cp-mo", JSON.stringify(mo)); }, [mo]);
+  useEffect(() => { localStorage.setItem("cp-wk", JSON.stringify(wk)); }, [wk]);
+  useEffect(() => { localStorage.setItem("cp-vw", vw); }, [vw]);
   useEffect(() => { localStorage.setItem("cp-brand", JSON.stringify(brand)); }, [brand]);
   useEffect(() => { localStorage.setItem("cp-sts", JSON.stringify(sts)); }, [sts]);
   useEffect(() => { localStorage.setItem("cp-edits", JSON.stringify(edits)); }, [edits]);
