@@ -271,11 +271,15 @@ function BriefModal({ item, mo, tw, onClose, edits, onEdit, brand }) {
             padding: "4px 14px", borderRadius: "3px", fontSize: "0.68rem",
             fontWeight: 600, letterSpacing: "2.5px", textTransform: "uppercase"
           }}>{item.d} · {SN[item.d]}</span>
-          <span style={{
+          <select value={get("f")} onChange={(e) => set("f")(e.target.value)} style={{
             display: "inline-block", background: "#1e1e1e", color: "#aaa",
             padding: "4px 12px", borderRadius: "3px", fontSize: "0.64rem",
-            fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase"
-          }}>{item.f}</span>
+            fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase",
+            border: "1px solid #333", fontFamily: "Inter", outline: "none", cursor: "pointer",
+          }}>
+            <option value="Reel">Reel</option>
+            <option value="Carousel">Carousel</option>
+          </select>
           <span style={{
             display: "inline-block", background: c + "18", color: c,
             padding: "4px 10px", borderRadius: "3px", fontSize: "0.64rem",
@@ -608,7 +612,7 @@ export default function P() {
                   color: SC[d], letterSpacing: "1px", opacity: isMatch(d) ? 1 : 0.3
                 }}>
                   <span style={{ fontWeight: 600 }}>{d}</span> · {SN[d]}{" "}
-                  <span style={{ color: "#777", fontSize: "0.64rem" }}>({item?.f || "—"})</span>
+                  <span style={{ color: "#777", fontSize: "0.64rem" }}>({edits[`${wi}-${d}`]?.f ?? (item?.f || "—")})</span>
                 </div>
               );
             })}
@@ -684,7 +688,7 @@ export default function P() {
                     <span style={{
                       fontSize: "0.64rem", color: SC[d], fontWeight: 600,
                       letterSpacing: "1px", textTransform: "uppercase", opacity: 0.85
-                    }}>{item.f}</span>
+                    }}>{getEdited(item, "f")}</span>
                     <div style={{
                       width: "6px", height: "6px", borderRadius: "50%", background: "#4cdd80"
                     }} title="Script ready" />
@@ -816,7 +820,7 @@ export default function P() {
                           <span style={{
                             fontSize: "0.56rem", color: SC[d], letterSpacing: "1px",
                             textTransform: "uppercase", opacity: 0.8
-                          }}>{item.f}</span>
+                          }}>{edits[`${gi}-${d}`]?.f ?? item.f}</span>
                           <div style={{
                             width: "4px", height: "4px", borderRadius: "50%", background: "#4cdd80"
                           }} />
