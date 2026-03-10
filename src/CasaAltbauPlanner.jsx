@@ -353,8 +353,13 @@ function BriefModal({ item, mo, tw, onClose, edits, onEdit, brand }) {
 /* ─── Main Planner ─── */
 export default function P() {
   const [brand, setBrand] = useState(() => {
-    try { return { ...DEFAULT_BRAND, ...JSON.parse(localStorage.getItem("cp-brand")) }; }
-    catch { return { ...DEFAULT_BRAND }; }
+    try {
+      const saved = JSON.parse(localStorage.getItem("cp-brand"));
+      if (!saved) return { ...DEFAULT_BRAND };
+      const merged = { ...DEFAULT_BRAND, ...saved };
+      if (!merged.months || merged.months.length < 12) merged.months = DEFAULT_BRAND.months;
+      return merged;
+    } catch { return { ...DEFAULT_BRAND }; }
   });
   const [showSettings, setShowSettings] = useState(false);
   const [mo, setMo] = useState(() => { try { return JSON.parse(localStorage.getItem("cp-mo")) || 0; } catch { return 0; } });
